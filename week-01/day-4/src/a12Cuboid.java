@@ -11,12 +11,8 @@ public class a12Cuboid {
             double bSide = 10;
             double cSide = 10;
 
-            System.out.println("Surface Area: " + (int)(6 * Math.pow(aSide,2)));
+            System.out.println("Surface Area: " + 2 * ((int)(Math.pow(aSide,2)) + (int)(Math.pow(bSide,2)) + (int)(Math.pow(cSide,2))));
             System.out.println("Volume: " + (int)(aSide * bSide * cSide));
-
-
-
-
 
             }
         }
