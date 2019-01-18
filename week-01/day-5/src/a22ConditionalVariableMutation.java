@@ -53,7 +53,7 @@ public class a22ConditionalVariableMutation {
 
 
         int d = 8;
-        int time = 120;
+        int time = 220;
         String out3 = "";
         // if d is dividable by 4
         // and time is not more than 200
@@ -67,7 +67,7 @@ public class a22ConditionalVariableMutation {
 
         if (isItDividable == 0 && time <= 200) {
             out3 = "check";
-        } else if (time > 100) {
+        } else if (time > 200) {
             out3 = "Time out";
         } else {
             out3 = "Run Forest Run!";

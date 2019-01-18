@@ -15,7 +15,7 @@ public class a34ParametricAverage {
         System.out.println("Please give the number of integers you would like to type in: ");
         int arrayLength = input.nextInt();
 
-        int [] numberArray = new int[arrayLength];
+        int[] numberArray = new int[arrayLength];
         int sum = 0;
 
         System.out.println("Please type in " + numberArray.length + " numbers: ");
@@ -29,7 +29,6 @@ public class a34ParametricAverage {
         double average = (double)sum / numberArray.length;
         System.out.println("Sum: " + sum + ", Average: " + average);
 
-
         /*
         int sum = 0;
         for (int i = 0; i < arrayLength; i++) {
@@ -37,8 +36,6 @@ public class a34ParametricAverage {
             sum = sum + numbersIn;
         }
         */
-
-
 
     }
 }
