@@ -19,15 +19,21 @@ public class a29DrawPyramid {
         int height = input.nextInt();
 
         for (int i = 0; i < height; i++) {
-            System.out.println();
 
-            for  (int k = height; k > (i + 1); k--) {
+            //  for  (int k = height; k > (i + 1); k--) {
+            //      System.out.print(" ");
+            //  }         ÍGY CSINÁLTAM ELŐSZÖR
+
+            for  (int k = 0; k < (height - i - 1); k++) {
                 System.out.print(" ");
             }
+
 
             for  (int j = 0; j < (i + 1 + i); j++) {
                 System.out.print("*");
             }
+
+            System.out.println();
         }
 
     }
