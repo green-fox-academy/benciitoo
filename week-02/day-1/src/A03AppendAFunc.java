@@ -7,7 +7,7 @@
 //
 // - Print the result of `appendAFunc(typo)`
 
-public class A03AppendA {
+public class A03AppendAFunc {
 
     public static void main(String[] args) {
 
