@@ -9,15 +9,15 @@
 
 public class A03AppendA {
 
-    public static String appendAFunc (String correctMe) {
-        String corrected = (correctMe + "a");
-        return corrected;
-    }
-
-
     public static void main(String[] args) {
 
         String typo = "Chincill";
         System.out.println(appendAFunc(typo));
+    }
+
+
+    public static String appendAFunc (String correctMe) {
+        String corrected = (correctMe + "a");
+        return corrected;
     }
 }

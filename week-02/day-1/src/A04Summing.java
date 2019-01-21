@@ -6,16 +6,6 @@
 
 public class A04Summing {
 
-    public static void main(String[] args) {
-
-        int[] numberArray = new int[3];
-        for (int i = 0; i < numberArray.length; i++) {
-            numberArray[i] = (int) (Math.random() * 10);
-        }
-        System.out.println(sum(numberArray));
-    }
-
-
     public static int sum (int giveMeArray[]) {
         int summa = 0;
        // for (int i = 0; i < giveMeArray.length; i++) {
@@ -26,6 +16,15 @@ public class A04Summing {
             summa = summa + barmi;
         }
         return summa;
+    }
 
+
+    public static void main(String[] args) {
+
+        int[] numberArray = new int[3];
+        for (int i = 0; i < numberArray.length; i++) {
+            numberArray[i] = (int) (Math.random() * 10);
+        }
+        System.out.println(sum(numberArray));
     }
 }

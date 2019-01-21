@@ -4,16 +4,16 @@
 
 public class A01Doubling {
 
-    public static int doubling (int doubleMe) {
-        doubleMe = doubleMe * 2;
-        return doubleMe;
-    }
-
-
     public static void main(String[] args) {
 
         int baseNum = 123;
 
         System.out.println(doubling(baseNum));
+    }
+
+
+    public static int doubling (int doubleMe) {
+        doubleMe = doubleMe * 2;
+        return doubleMe;
     }
 }
