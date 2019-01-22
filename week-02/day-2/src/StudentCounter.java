@@ -8,7 +8,7 @@ public class StudentCounter {
 
         Map<String, Object> row0 = new HashMap<>();
         row0.put("name", "Theodor");
-        row0.put("age", 9.5);
+        row0.put("age", 9);
         row0.put("candies", 2);
         listOfMaps.add(row0);
 
@@ -46,13 +46,9 @@ public class StudentCounter {
         //  - Who has got more candies than 4
         //  - Sum the age of people who have less than 5 candies
 
-
-
-        int seged;
-
+        int seged, ageSum = 0;
 
         ArrayList<String> cukrosok = new ArrayList<>();
-        ArrayList<Double> cukortalanok = new ArrayList<>();
 
 
         for (int i = 0; i < listOfMaps.size(); i++) {
@@ -62,21 +58,13 @@ public class StudentCounter {
                cukrosok.add((String)listOfMaps.get(i).get("name"));
            }
 
-           // if (seged < 5) {
-//
-          //      cukortalanok.add((Double)listOfMaps.get(i).get("age"));
-          //  }
-
+            if (seged < 5) {
+                ageSum = ageSum + (int)listOfMaps.get(i).get("age");
+            }
         }
 
         System.out.println("They have more candies than 4: " + cukrosok.toString());
-        // System.out.println(cukortalanok.get(3));
-
-
-
+        System.out.println("Sum the age of people who have less than 5 candies: " + ageSum);
 
     }
-
-
-
 }
