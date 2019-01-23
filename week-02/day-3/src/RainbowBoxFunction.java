@@ -11,24 +11,23 @@ public class RainbowBoxFunction {
         // and draws a square of that size and color to the center of the canvas.
         // Create a loop that fills the canvas with rainbow colored squares.
 
-        int squareSize = 0;
+        int squareSize = 300;
 
 
         for (int i = 0; i < 10; i++) {
-            squareSize += 30;
+
             int colorR = (int) (Math.random() * 255);
             int colorG = (int) (Math.random() * 255);
             int colorB = (int) (Math.random() * 255);
             rajzol(squareSize, new Color(colorR, colorG, colorB), graphics);
+            squareSize -= 30;
         }
-
-
-
     }
+
 
     public static void rajzol (int squareSize, Color valami, Graphics graphics){
             graphics.setColor(valami);
-            graphics.drawRect(WIDTH/2 - squareSize/2, HEIGHT/2 - squareSize/2, squareSize, squareSize);
+            graphics.fillRect(WIDTH/2 - squareSize/2, HEIGHT/2 - squareSize/2, squareSize, squareSize);
     }
 
 
