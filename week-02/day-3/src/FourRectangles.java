@@ -12,7 +12,7 @@ public class FourRectangles {
 
         for (int i = 0; i < 4; i++) {
             graphics.setColor(new Color(100 + i * 30, i * 50, i * 30));
-            graphics.fillRect(10 + i * 60, 10, 50, 200);
+            graphics.fillRect(10 + i * 60, 10, 50, 200 - i * 20);
         }
     }
 
