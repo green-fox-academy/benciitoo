@@ -14,28 +14,28 @@ public class EnvelopeStar {
         int pos = 0;
         graphics.setColor(Color.green);
 
-       /* for (int i = 0; i < 16; i++) {
-            DrawLine(pos, center, center, center + pos + 10, graphics);
-            DrawLine(pos, center, center, center - pos - 10, graphics);
-            DrawLine(WIDTH - pos, center, center, center + pos + 10, graphics);
-            DrawLine(WIDTH - pos, center, center, center - pos - 10, graphics);
-            pos = pos + space;
-        }*/
-
+        for (int i = 0; i < 16; i++) {
+            DrawL(pos, center + pos + 10, graphics);
+            DrawL(pos, center - pos - 10, graphics);
+            DrawL(WIDTH - pos, center + pos + 10, graphics);
+            DrawL(WIDTH - pos, center - pos - 10, graphics);
+            pos += space;
+        }
          graphics.drawLine(center, 0, center, HEIGHT);
-         for (int i = 0; i < 16; i++) {
+
+        /* for (int i = 0; i < 16; i++) {
             graphics.drawLine(pos, center, center, center + pos + 10);
             graphics.drawLine(pos, center, center, center - pos - 10);
             graphics.drawLine(WIDTH - pos, center, center, center + pos + 10);
             graphics.drawLine(WIDTH - pos, center, center, center - pos - 10);
             pos = pos + space;
-        }
+        }*/
     }
 
 
-   /* public static void DrawLine(int x1, int y1, int x2, int y2, Graphics graphics) {
-        graphics.drawLine(x1, y1, x2, y2);
-    }*/
+    public static void DrawL(int x1, int y2, Graphics graphics) {
+        graphics.drawLine(x1, HEIGHT / 2, WIDTH / 2, y2);
+    }
 
 
     // Don't touch the code below
