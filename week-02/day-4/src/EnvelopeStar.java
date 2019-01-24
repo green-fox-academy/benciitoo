@@ -8,7 +8,6 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 public class EnvelopeStar {
     public static void mainDraw(Graphics graphics) {
-        // Fill the canvas with a checkerboard pattern.
 
         int center = WIDTH / 2;
         int space = (WIDTH / 2) / 16;
