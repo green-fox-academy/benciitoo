@@ -12,11 +12,12 @@ public class AppendLetter{
 
 
     public static List<String> appendA(List<String> far) {
-        String seged = "";
+        // String seged = "";
         for (int i = 0; i < far.size(); i++) {
-            seged = far.get(i);
-            seged = seged + "a";
-            far.set(i, seged);
+          //  seged = far.get(i);
+          //  seged = seged + "a";
+          //  far.set(i, seged);
+            far.set(i, (far.get(i) + "a"));
         }
       return far;
     }
