@@ -46,23 +46,17 @@ public class StudentCounter {
         //  - Who has got more candies than 4
         //  - Sum the age of people who have less than 5 candies
 
-        int seged, ageSum = 0;
-
+        int ageSum = 0;
         ArrayList<String> cukrosok = new ArrayList<>();
 
-
         for (int i = 0; i < listOfMaps.size(); i++) {
-            seged = (int)listOfMaps.get(i).get("candies");
-
-            if (seged > 4) {
+            if ((int)listOfMaps.get(i).get("candies") > 4) {
                cukrosok.add((String)listOfMaps.get(i).get("name"));
            }
-
-            if (seged < 5) {
+            if ((int)listOfMaps.get(i).get("candies") < 5) {
                 ageSum = ageSum + (int)listOfMaps.get(i).get("age");
             }
         }
-
         System.out.println("They have more candies than 4: " + cukrosok.toString());
         System.out.println("Sum the age of people who have less than 5 candies: " + ageSum);
 
