@@ -16,7 +16,8 @@ public class Checkerboard {
 
         for (int i = 0; i < kockak; i++) {
             for (int j = 0; j < kockak; j++) {
-                if ((i % 2) == (j % 2)) {
+                if ((i % 2 == 0) ^ (j % 2 == 0)) {    // XOR
+           //     if ((i % 2) == (j % 2)) {
                     graphics.setColor(Color.black);
                 }   else {
                     graphics.setColor(Color.white);

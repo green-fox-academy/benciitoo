@@ -25,8 +25,8 @@ public class RainbowBoxFunction {
     }
 
 
-    public static void rajzol (int squareSize, Color valami, Graphics graphics){
-            graphics.setColor(valami);
+    public static void rajzol (int squareSize, Color szinek, Graphics graphics){
+            graphics.setColor(szinek);
             graphics.fillRect(WIDTH/2 - squareSize/2, HEIGHT/2 - squareSize/2, squareSize, squareSize);
     }
 
