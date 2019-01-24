@@ -12,24 +12,22 @@ public class LinePlay {
         int divided = 32;
         int side = WIDTH / divided;
 
-        graphics.setColor(Color.green);
+
         for (int i = 0; i < divided; i++) {
+            graphics.setColor(Color.green);
             graphics.drawLine(0, side * i, side * i, HEIGHT);
-        }
-
-
-        graphics.setColor(Color.MAGENTA);
-        for (int i = 0; i < divided; i++) {
+            graphics.setColor(Color.MAGENTA);
             graphics.drawLine(side * i, 0, WIDTH, side * i);
+
         }
 
 
-
-      //  rajzol(Color.green, graphics)
+       // rajzol(Color.green, graphics);
     }
- //   public static void rajzol (Color valami, Graphics graphics){
+    /*public static void rajzol (Color valami, Graphics graphics){
 
-  //  }
+        graphics.setColor(valami);
+    }*/
 
 
     // Don't touch the code below
