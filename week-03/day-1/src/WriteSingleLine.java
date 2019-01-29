@@ -19,6 +19,7 @@ public class WriteSingleLine {
 
     public static void writeFileFromStringList (List<String> insideList) {
         try {
+            // Így is lehet ha egy sima stringsort akarok beírni: Files.write(Paths.get(assets/my-file2.txt), stringváltozó.getbytes)
             Files.write(Paths.get("assets/my-file2.txt"), insideList);
         } catch (Exception ex) {
             System.out.println("Unable to write file: my-file2.txt");
