@@ -1,0 +1,3 @@
+Ez egy file, 
+amibol kiolvasom
+a sorokat.
