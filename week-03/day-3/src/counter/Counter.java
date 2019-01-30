@@ -12,7 +12,6 @@ public class Counter {
     public Counter(int valueNumber){
         value = valueNumber;
         startingValue = value;
-
     }
 
 
