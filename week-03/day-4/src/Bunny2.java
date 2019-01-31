@@ -5,12 +5,12 @@ public class Bunny2 {
 // number of "ears" in the bunny line 1, 2, ... n (without loops or multiplication).
 
     public static void main(String[] args) {
-        System.out.println(countTheEarsOfBunnies(8));
+        System.out.println(countTheEarsOfBunnies(10));
     }
 
 
     static int countTheEarsOfBunnies(int numberOfBunnies){
-        if (numberOfBunnies == 0){
+        if (numberOfBunnies <= 0){
             return 0;
         } else if (numberOfBunnies % 2 == 1) {
             return (2 + countTheEarsOfBunnies((numberOfBunnies) - 1));

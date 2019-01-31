@@ -10,11 +10,11 @@ public class Refactorio {
 
     static int refactorio(int number){
 
-        if (number == 1){
+        if (number <= 1){
             return number;
         } else {
             return (number * (refactorio(number -1)));
         }
     }
-    
+
 }
