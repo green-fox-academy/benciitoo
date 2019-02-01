@@ -10,6 +10,8 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Main {
     public static void mainDraw(Graphics graphics) {
 
+        int startX;
+        int startY;
         int depth = 3;
         int rectangleSize = WIDTH / 3;
 
@@ -24,6 +26,7 @@ public class Main {
 
         graphics.fillRect(x1, y1, size, size);
         int subSide = size / 3;
+
 
 
         if (depth == 0) {
