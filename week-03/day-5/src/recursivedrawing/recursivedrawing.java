@@ -13,15 +13,12 @@ public class recursivedrawing {
         int depth = 6;
         int startX = 0;
         int startY = 0;
-        int size = WIDTH / 3;
 
         graphics.setColor(Color.yellow);
         graphics.fillRect(0,0, WIDTH, HEIGHT);
         graphics.setColor(Color.black);
 
-
-        recursionDraw(0, 0, 729, depth, graphics);
-
+        recursionDraw(startX, startY, WIDTH, depth, graphics);
 
     }
 
@@ -31,15 +28,15 @@ public class recursivedrawing {
         depth--;
         if (depth > 0) {
 
-            graphics.drawLine(startX, startY + newsize, startX + size, startY + newsize);
-            graphics.drawLine(startX, startY + 2 * newsize, startX + size, startY + 2 * newsize);
-            graphics.drawLine(startX + newsize, startY, startX + newsize, startY + size);
-            graphics.drawLine(startX + 2 * newsize, startY, startX + 2 * newsize, startY + size);
+            graphics.drawLine(startX, startY + newsize, startX + newsize * 3, startY + newsize);
+            graphics.drawLine(startX, startY + 2 * newsize, startX + newsize * 3, startY + 2 * newsize);
+            graphics.drawLine(startX + newsize, startY, startX + newsize, startY + newsize * 3);
+            graphics.drawLine(startX + 2 * newsize, startY, startX + 2 * newsize, startY + newsize * 3);
 
-            recursionDraw(startX + size / 3, startY, newsize, depth, graphics);
-            recursionDraw(startX, startY + size / 3, newsize, depth, graphics);
-            recursionDraw(startX + 2* (size / 3), startY + size / 3, newsize, depth, graphics);
-            recursionDraw(startX + size / 3, startY + 2 * (size / 3), newsize, depth, graphics);
+            recursionDraw(startX + newsize, startY, newsize, depth, graphics);
+            recursionDraw(startX, startY + newsize, newsize, depth, graphics);
+            recursionDraw(startX + 2* newsize, startY + newsize, newsize, depth, graphics);
+            recursionDraw(startX + newsize, startY + 2 * newsize, newsize, depth, graphics);
 
         } else {
             return;

@@ -1,0 +1,21 @@
+package shapeasobject;
+
+import java.awt.*;
+
+public class RectObj {
+    int size;
+    Color color;
+
+
+    public RectObj(int size, Color color) {
+        this.size = size;
+        this.color = color;
+    }
+
+
+    public void drawme(Graphics graphics, int startX, int startY){
+        graphics.setColor(this.color);
+        graphics.drawRect(startX, startY, this.size, this.size);
+    }
+
+}
