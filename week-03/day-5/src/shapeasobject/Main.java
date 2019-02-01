@@ -13,14 +13,14 @@ public class Main {
 
         RectObj rectObj1 = new RectObj(30, Color.yellow);
         RectObj rectObj2 = new RectObj(15, Color.green);
+        RectObj rectObj3 = new RectObj();
 
-       // graphics.drawRect(30, 30, rectObj1.size, rectObj1.size);
+        // graphics.drawRect(30, 30, rectObj1.size, rectObj1.size);   így is ki lehet nyerni objektum változót egy sima parancsnál
 
         rectObj1.drawme(graphics, 40, 50);
         rectObj2.drawme(graphics, 90, 30);
-
+        rectObj3.drawme(graphics, 200, 200);
     }
-
 
 
     // Don't touch the code below

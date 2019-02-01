@@ -7,6 +7,12 @@ public class RectObj {
     Color color;
 
 
+    public RectObj(){
+        size = 50;
+        color = Color.pink;
+    }
+
+
     public RectObj(int size, Color color) {
         this.size = size;
         this.color = color;
