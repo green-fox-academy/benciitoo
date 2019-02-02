@@ -19,7 +19,7 @@ public class RectObj {
     }
 
 
-    public void drawme(Graphics graphics, int startX, int startY){
+    public void drawMe(Graphics graphics, int startX, int startY){
         graphics.setColor(this.color);
         graphics.drawRect(startX, startY, this.size, this.size);
     }

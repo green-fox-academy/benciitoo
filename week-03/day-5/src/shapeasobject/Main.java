@@ -17,9 +17,9 @@ public class Main {
 
         // graphics.drawRect(30, 30, rectObj1.size, rectObj1.size);   így is ki lehet nyerni objektum változót egy sima parancsnál
 
-        rectObj1.drawme(graphics, 40, 50);
-        rectObj2.drawme(graphics, 90, 30);
-        rectObj3.drawme(graphics, 200, 200);
+        rectObj1.drawMe(graphics, 40, 50);
+        rectObj2.drawMe(graphics, 90, 30);
+        rectObj3.drawMe(graphics, 200, 200);
     }
 
 

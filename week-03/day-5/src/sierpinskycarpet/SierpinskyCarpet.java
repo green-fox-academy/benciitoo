@@ -7,37 +7,45 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class Main {
+public class SierpinskyCarpet {
     public static void mainDraw(Graphics graphics) {
 
         int startX;
         int startY;
-        int depth = 3;
+        int depth = 6;
         int rectangleSize = WIDTH / 3;
 
 
-        recursionDraw(rectangleSize, rectangleSize, rectangleSize, depth, graphics);
+        recursionDraw(0, 0, rectangleSize, depth, graphics);
 
 
     }
 
 
     public static void recursionDraw (int x1, int y1, int size, int depth, Graphics graphics) {
-
-        graphics.fillRect(x1, y1, size, size);
-        int subSide = size / 3;
-
+        int newSize = size / 3;
 
 
         if (depth == 0) {
                 return;
             } else {
                 depth--;
-                recursionDraw(subSide, subSide, subSide, depth, graphics);
-                //recursionDraw(x1, subSide, subSide, depth, graphics);
+                graphics.fillRect(x1 + size, y1 + size, size, size);
+
+                recursionDraw(x1, y1, newSize, depth, graphics);
+                recursionDraw(x1 + size, y1, newSize, depth, graphics);
+                recursionDraw(x1 + 2 * size, y1, newSize, depth, graphics);
+
+                recursionDraw(x1, y1 + size, newSize, depth, graphics);
+                recursionDraw(x1 + 2 * size, y1 + size, newSize, depth, graphics);
+
+                recursionDraw(x1, y1 + 2 * size, newSize, depth, graphics);
+                recursionDraw(x1 + size, y1 + 2 * size, newSize, depth, graphics);
+                recursionDraw(x1 + 2 * size, y1 + 2 * size, newSize, depth, graphics);
 
 
-            }
+
+        }
 
 
 
