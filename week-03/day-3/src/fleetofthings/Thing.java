@@ -18,6 +18,6 @@ public class Thing {
     @Override
     public String toString() {
         return (completed ? "[x] " : "[ ] ") + name;
-        //ha igaz, akkor az elsőre ugrik, ha nem igaz, akkor a másikra
+        // ? -> ha igaz, akkor az elsőre ugrik, ha nem igaz, akkor a másikra
     }
 }
