@@ -25,7 +25,7 @@ public class TheGardenMain {
         kert.reportGardenStatus();
         System.out.println();
 
-        kert.watering(40);
+        kert.watering(70);
         kert.reportGardenStatus();
     }
 }
