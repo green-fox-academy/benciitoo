@@ -1,8 +1,10 @@
 package comparable;
 
+import printable.Printable;
+
 import java.util.Arrays;
 
-public class Domino implements Comparable<Domino> {
+public class Domino implements Comparable<Domino>, Printable {
 
     private final int left;
     private final int right;
@@ -37,5 +39,10 @@ public class Domino implements Comparable<Domino> {
             }
         }
         return -1;
+    }
+
+    @Override
+    public void printAllFields() {
+        System.out.println(this);
     }
 }
