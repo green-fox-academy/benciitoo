@@ -77,5 +77,4 @@ public class TestsForSimpleExercises {
         assertEquals(1, fibo.fibonacciSequence(1));
         assertEquals(233, fibo.fibonacciSequence(13));
     }
-
 }

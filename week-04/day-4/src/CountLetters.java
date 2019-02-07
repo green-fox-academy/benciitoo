@@ -8,7 +8,7 @@ public HashMap countTheLettersInString (String countMe) {
     HashMap<Character, Integer> charMap = new HashMap<>();
 
     for (int i = 0; i < charArray.length; i++) {
-        if (charMap.isEmpty() || !charMap.containsKey(charArray[i])) {
+        if (!charMap.containsKey(charArray[i])) {
             charMap.put(charArray[i], 1);
         } else {
             charMap.put(charArray[i], charMap.get(charArray[i]) + 1);

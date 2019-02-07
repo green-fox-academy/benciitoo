@@ -1,10 +1,7 @@
 public class Fibonacci {
 
-    public static void main(String[] args) {
-        System.out.println(fibonacciSequence(7));
-    }
 
-    public static int fibonacciSequence(int n){
+    public int fibonacciSequence(int n){
         if (n == 0){
             return 0;
         } else if (n == 1){
