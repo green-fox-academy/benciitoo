@@ -5,7 +5,6 @@ import java.util.List;
 public class Sum {
 
    /* List<Integer> numbers = new ArrayList<>();          EZ A TESZTHEZ NEM KELL, NEM KELL KONSTRUKTOR
-
     public Sum(List<Integer> numbers) {
         this.numbers = numbers;
     }*/

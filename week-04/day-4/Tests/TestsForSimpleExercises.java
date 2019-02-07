@@ -48,27 +48,34 @@ public class TestsForSimpleExercises {
         //numberTest = null;
         Sum sum1 = new Sum();
         assertEquals(null, sum1.sum(null));
-
     }
 
 
     @Test
-    public void anagramTestWithCaseTestAndDifferentStringSize(){
+    public void anagramTestWithCaseDifferenceAndStringSizeDifference(){
         Anagram anagram = new Anagram();
         assertTrue(anagram.areTheAnagram("ABCD", "DCBA"));
-        Anagram anagram2 = new Anagram();
-        assertTrue(anagram2.areTheAnagram("ABCD", "dcbA"));
-        Anagram anagram3 = new Anagram();
-        assertFalse(anagram2.areTheAnagram("ABCD", "ABCDefgh"));
+        assertTrue(anagram.areTheAnagram("ABCD", "dcbA"));
+        assertFalse(anagram.areTheAnagram("ABCD", "ABCDefgh"));
     }
 
 
     @Test
-    public void countLettersTest(){
-
-        
+    public void countLettersTestWithCaseDifferenceAndSpecialCharacters(){
+        CountLetters clet = new CountLetters();
+        assertEquals(4, clet.countTheLettersInString("agyatlanka").get('a')); // Character-nél '' és nem "" !!!
+        assertEquals(1, clet.countTheLettersInString("agyatlanka").get('l'));
+        assertEquals(4, clet.countTheLettersInString("AGYAtlanka").get('a'));
+        assertEquals(1, clet.countTheLettersInString("5555\tt=/+§").get('\t'));
     }
 
 
+    @Test
+    public void fibonacciSequenceTestWithZeroAndOneAndRandomPositiveNumber(){
+        Fibonacci fibo = new Fibonacci();
+        assertEquals(0, fibo.fibonacciSequence(0));
+        assertEquals(1, fibo.fibonacciSequence(1));
+        assertEquals(233, fibo.fibonacciSequence(13));
+    }
 
 }

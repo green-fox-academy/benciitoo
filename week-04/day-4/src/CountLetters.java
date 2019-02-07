@@ -3,7 +3,7 @@ import java.util.HashMap;
 public class CountLetters {
 
 
-public static HashMap countTheLettersInString (String countMe) {
+public HashMap countTheLettersInString (String countMe) {
     char[] charArray = countMe.toLowerCase().toCharArray();
     HashMap<Character, Integer> charMap = new HashMap<>();
 
@@ -16,5 +16,4 @@ public static HashMap countTheLettersInString (String countMe) {
     }
     return charMap;
     }
-
 }
