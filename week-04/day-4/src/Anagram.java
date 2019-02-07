@@ -2,9 +2,9 @@ import java.util.Arrays;
 
 public class Anagram {
 
-    public boolean areTheAnagram (String first, String second){
-        char[] firstArray = first.toLowerCase().toCharArray();
-        char[] secondArray = second.toLowerCase().toCharArray();
+    public boolean areTheAnagram (String firstString, String secondString){
+        char[] firstArray = firstString.toLowerCase().toCharArray();
+        char[] secondArray = secondString.toLowerCase().toCharArray();
 
         if (firstArray.length == secondArray.length) {
             Arrays.sort(firstArray);

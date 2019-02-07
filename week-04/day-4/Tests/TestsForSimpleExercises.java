@@ -62,4 +62,13 @@ public class TestsForSimpleExercises {
         assertFalse(anagram2.areTheAnagram("ABCD", "ABCDefgh"));
     }
 
+
+    @Test
+    public void countLettersTest(){
+
+        
+    }
+
+
+
 }
