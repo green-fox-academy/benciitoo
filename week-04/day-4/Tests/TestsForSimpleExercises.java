@@ -65,16 +65,17 @@ public class TestsForSimpleExercises {
         CountLetters clet = new CountLetters();
         assertEquals(4, clet.countTheLettersInString("agyatlanka").get('a')); // Character-nél '' és nem "" !!!
         assertEquals(1, clet.countTheLettersInString("agyatlanka").get('l'));
-        assertEquals(4, clet.countTheLettersInString("AGYAtlanka").get('a'));
+        assertEquals(1, clet.countTheLettersInString("5555\tt=/+§").get('§'));
         assertEquals(1, clet.countTheLettersInString("5555\tt=/+§").get('\t'));
     }
 
 
     @Test
     public void fibonacciSequenceTestWithZeroAndOneAndRandomPositiveNumber(){
-        Fibonacci fibo = new Fibonacci();
-        assertEquals(0, fibo.fibonacciSequence(0));
-        assertEquals(1, fibo.fibonacciSequence(1));
-        assertEquals(233, fibo.fibonacciSequence(13));
+        //mivel a Fibonacci classnél static a methodom, itt el tudom érni
+        //amúgy field-be nem tudnám csak így megadni, hanem csak változó értékének megadásakor
+        assertEquals(0, Fibonacci.fibonacciSequence(0));
+        assertEquals(1, Fibonacci.fibonacciSequence(1));
+        assertEquals(233, Fibonacci.fibonacciSequence(13));
     }
 }

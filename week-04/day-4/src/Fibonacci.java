@@ -1,7 +1,7 @@
 public class Fibonacci {
 
 
-    public int fibonacciSequence(int n){
+    public static int fibonacciSequence(int n){
         if (n == 0){
             return 0;
         } else if (n == 1){
