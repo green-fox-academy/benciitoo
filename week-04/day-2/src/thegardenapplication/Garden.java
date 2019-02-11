@@ -18,26 +18,24 @@ public class Garden {
     }
 
 
-    public void watering(double amountOfWater){
-        int counter = 0;
+    public void wateringTheGarden(double amountOfWater){
+        int numberOfPlantsThatNeedWatering = 0;
         for (Plant plant : listOfPlants) {
             if(plant.doesItNeedWatering()) {
-                counter++;
+                numberOfPlantsThatNeedWatering++;
             }
         }
         for (Plant plant : listOfPlants) {
             if(plant.doesItNeedWatering()) {
-                plant.currentWaterLevel += ((amountOfWater / counter) * plant.waterAbsorbtionCapacity);
+                plant.watering(numberOfPlantsThatNeedWatering, amountOfWater);
             }
         }
     }
 
 
     public void reportGardenStatus(){
-
         for (Plant plant : listOfPlants) {
-            String doesItNeedWater = plant.doesItNeedWatering() ? " needs water." : " doesn't need water.";
-            System.out.println("The " + plant.color + " " + plant.name + doesItNeedWater);
+            plant.plantStatus();
         }
     }
 }

@@ -3,10 +3,10 @@ package thegardenapplication;
 public class Flower extends Plant {
 
     public Flower(String color){
-        super(color);
-        name = "Flower";
-        minWaterlevel = 5;
-        waterAbsorbtionCapacity = 0.75;
+        super(color, 5, 0.75);
+        // name = "Flower";
+        // minWaterlevel = 5;
+        // waterAbsorbtionCapacity = 0.75;
         //currentWaterLevel-t átveszi automatikusan apuciból
         /* Polimorfizmusnál a gyereknek mindig meg kell kívnia az apa konstruktorait (vagy simán örökli, és/vagy átveszi. De ahhoz, hogy
         a megfelelő apuci konstruktort vegye át, akkor annak az apuci konstruktornak az összes értékét meg kell hívni.
@@ -16,4 +16,9 @@ public class Flower extends Plant {
         egyet, pl második gyerek konstruktor az első parent konstruktort, az első gyerek konstruktor a második parent konstruktort.
          */
     }
+
+    public static void valamiflower(){
+
+    }
+
 }
