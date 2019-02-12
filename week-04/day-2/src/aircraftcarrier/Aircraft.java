@@ -43,8 +43,13 @@ public class Aircraft {
 
     public String getStatus(){
         String output = "Type " + getType() + ", Ammo: " + ammoStore + ", Base Damage: " + baseDamage +
-                ", All Damage: " + (ammoStore * baseDamage);
+                ", All Damage: " + getDamage();
         return output;
+    }
+
+
+    public int getDamage(){
+        return ammoStore * baseDamage;
     }
 
 

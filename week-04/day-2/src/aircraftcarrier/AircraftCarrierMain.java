@@ -1,23 +1,40 @@
 package aircraftcarrier;
 
+import java.util.Objects;
+
 public class AircraftCarrierMain {
 
     public static void main(String[] args) {
 
         Aircraft repcsi = new F16();
-        repcsi.refill(3);
-        repcsi.refill(4);
-        //System.out.println(repcsi.type);
-        System.out.println("ennyi maradt: " + repcsi.refill(10));
-        //System.out.println(repcsi.ammoStore);
-        System.out.println(repcsi.getType());
+        Carrier carrier1 = new Carrier(2000, 3000);
+        Carrier carrier2 = new Carrier(4000, 3500);
+        Carrier littleCarrier = new Carrier(300, 200);
 
-        System.out.println(repcsi.getStatus());
+        carrier1.add(repcsi);
+        carrier1.add(new F16());
+        carrier1.add(new F16());
+        carrier1.add(new F16());
+        carrier1.add(new F16());
+        carrier1.add(new F35());
+        carrier1.add(new F35());
+        carrier1.add(new F35());
+        carrier1.getStatus();
+        carrier1.fill();
+        carrier1.getStatus();
 
 
 
+        carrier2.add(new F16());
+        carrier2.add(new F16());
+        carrier2.add(new F16());
+        carrier2.add(new F16());
+        carrier2.add(new F16());
+        carrier2.add(new F35());
+        carrier2.getStatus();
 
+        carrier1.fight(carrier2);
+        carrier2.getStatus();
+        carrier1.getStatus();
     }
-
-
 }

@@ -54,8 +54,17 @@ public class Carrier {
 
 
     public void getStatus() {
-        System.out.println("HP: " + healthPoint + ", Aircraft count: " + aircraftList.size() + ", Ammo storage: "
-                + ammoStorage + ", Total damage: " + getTotalDamage());
+
+        if (healthPoint == 0) {
+            System.out.println("It's dead Jim :(");
+        } else {
+
+            System.out.println("HP: " + healthPoint + ", Aircraft count: " + aircraftList.size() + ", Ammo storage: "
+                    + ammoStorage + ", Total damage: " + getTotalDamage());
+            for (Aircraft aircraft : aircraftList) {
+                System.out.println(aircraft.getStatus());
+            }
+        }
     }
 
 
@@ -63,11 +72,23 @@ public class Carrier {
         int totalDamage = 0;
         if (aircraftList.size() > 0) {
             for (Aircraft aircraft : aircraftList) {
-                totalDamage += aircraft.fight();
+                totalDamage += aircraft.getDamage();
             }
             return totalDamage;
         }
         return totalDamage;
     }
 
+
+    public void fight(Carrier otherCarrier) {
+        int fullDamage = 0;
+        for (Aircraft aircraft : aircraftList) {
+            fullDamage += aircraft.fight();
+        }
+        if (fullDamage >= otherCarrier.healthPoint) {
+            otherCarrier.healthPoint = 0;
+        } else {
+            otherCarrier.healthPoint -= fullDamage;
+        }
+    }
 }
