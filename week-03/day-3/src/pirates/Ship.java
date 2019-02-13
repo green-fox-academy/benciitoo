@@ -38,11 +38,5 @@ public class Ship {
             aliveCounter = shipCrew.get(i).isAlive() ? (aliveCounter += 1) : aliveCounter;
         }
         System.out.println(aliveCounter + " pirates are alive on the ship.");
-
-
-
-
     }
-
-
 }
