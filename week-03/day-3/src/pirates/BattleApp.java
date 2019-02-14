@@ -1,9 +1,8 @@
 package pirates;
 
-public class PiratesMain {
+public class BattleApp {
 
     public static void main(String[] args) {
-
 
         Pirate pirate1 = new Pirate(false);
         Pirate pirate2 = new Pirate(false);
@@ -28,13 +27,17 @@ public class PiratesMain {
         pirateship.fillShip(new Pirate(true));
         pirateship.fillShip(new Pirate(true));
 
-
         pirateship.getShipStatus();
 
 
+        Ship deathShip = new Ship();
+        deathShip.fillShip(new Pirate(true));
+        deathShip.fillShip(new Pirate(false));
+        deathShip.fillShip(new Pirate(false));
 
+        deathShip.getShipStatus();
+
+        System.out.println(pirateship.battle(deathShip));
     }
-
-
 
 }
