@@ -7,3 +7,8 @@ https://github.com/benciitoo/git-lesson-repository.git
 
 Trial exam Basics:
 https://github.com/benciitoo/exam-trial-basics
+
+
+Megalotis foundation exam:
+https://github.com/benciitoo/megalotis-foundation-normal-exam
+
