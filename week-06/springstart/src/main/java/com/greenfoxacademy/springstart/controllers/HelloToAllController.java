@@ -22,6 +22,14 @@ public class HelloToAllController {
         model.addAttribute("oneGreeting", hellos[(int) (Math.random() * hellos.length - 1)]);
         model.addAttribute("px", (8 + (Math.random() * 99)));
 
+        /*
+       model.addAttribute("red", new Random());
+       model.addAttribute("green", new Random());
+       model.addAttribute("blue", new Random());
+       model.addAttribute("size", new Random());
+         */
+
+
         return "greetall";
     }
 }

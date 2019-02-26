@@ -5,7 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
     <body>
-        <!-- <p th:each="hello : ${oneGreeting}" th:text="${hello}"></p> -->
+        <!-- <p th:each="hello : ${oneGreeting}" th:text="${hello}"></p>   ITT CSAK KIRAKJA A SIMA LISTÁT -->
         <p th:style="'font-size:' + ${px}+ 'px;color: rgb(' + ${color1} + ',' + ${color2} + ',' + ${color3} + ');'" th:text="${oneGreeting}" ></p>
+    <!-- <p th:each="hello : ${helloss}"th:style="'color: rgb(' + ${red.nextInt(256)} + ', ' + ${green.nextInt(256)} + ', ' + ${blue.nextInt(256)} + '); font-size: ' + ${size.nextInt(250)+50} + '%;'" th:text="${hello}"></p> EZ AZ EGÉSZET KIÍRJA MÁS SZÍNEKKEL ÉS MÉRETTEL-->
     </body>
 </html>
