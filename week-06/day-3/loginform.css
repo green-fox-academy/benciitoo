@@ -1,0 +1,80 @@
+body{
+    background-color: lightgrey;
+    font-family: "Microsoft PhagsPa";
+}
+
+
+.loginBox {
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-200px; /* this is half the height of your div*/
+    margin-left:-200px; /*this is half of width of your div*/
+}
+
+
+.boxInBox{
+    margin: 50px;
+}
+
+
+h1{
+    font-weight: normal;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+
+.inputInfo{
+    padding-top: 20px;
+    font-size: 10px;
+}
+
+
+#nameField{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+
+#myPassword{
+    margin-top: 10px;
+    background: url("oneeye.png") no-repeat;
+    background-position: right;
+    background-size: 5%;
+}
+
+.navBar{
+text-align: right;
+}
+
+.forgotPass{
+    font-size: 9px;
+    text-align: right;
+}
+
+
+.labeltext{
+    font-size: 10px;
+}
+
+
+img{
+    height: 20px;
+}
+
+
+.submitButton{
+    padding: 15px 40px;
+    margin-top: 10px;
+    color: white;
+    border-radius: 30px;
+    background-color: black;
+    border-style: hidden;
+}
+
+
+/*hover*/

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="./loginform.css">
+    <script type="text/javascript" src="loginform.js"></script>
+    <title>Login form</title>
+</head>
+<body>
+
+<div class="loginBox">
+
+    <div class="boxInBox">
+        <h1>ACCOUNT LOGIN</h1>
+
+
+        <form method="get" action="http://index.hu">
+
+            <label class="labeltext" for="nameField">USERNAME</label>
+            <input type="text" id="nameField" style="font-size:16pt;" size="24">
+
+            <label class="labeltext" for="myPassword">PASSWORD</label>
+            <input type="password" id="myPassword" class="passwordEye" style="font-size:16pt;" size="24">
+
+            <nav class="navBar">
+                <a class="forgotPass" href="https://www.lastpass.com/" style="text-decoration:none" target="blank">Forgot
+                    Password?</a>
+            </nav>
+
+            <img src="oneeye.png" onmouseover="mouseoverPass();" onmouseout="mouseoutPass();"/>
+            <br>
+            <input type="submit" value="Login" class="submitButton">
+
+        </form>
+
+    </div>
+</div>
+
+
+</body>
+</html>
