@@ -4,7 +4,9 @@ package com.mywebshop.bencewebshop.controllers;
 import com.mywebshop.bencewebshop.models.Item;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -95,15 +97,13 @@ public class WebshopMainController {
         return "getnumbers";
     }
 
-/*    @RequestMapping("/search")
-    public String search(Model model) {
-        List<Item> listThatContainsNike = shopItemsList.stream()
-                .filter(x -> x.getName().toLowerCase().contains("nike") || x.getDescription().toLowerCase().contains("nike"))
+    @PostMapping("/search")
+    public String search(Model model, @RequestParam("searchField") String keyword) {
+        List<Item> megsemszarlakle = shopItemsList.stream()
+                .filter(x -> x.getName().toLowerCase().contains(keyword) || x.getDescription().toLowerCase().contains(keyword))
                 .collect(Collectors.toList());
-        model.addAttribute("items", listThatContainsNike);
-        return "webshop";*/
-
-
-
+        model.addAttribute("items", megsemszarlakle);
+        return "webshop";
+    }
 
 }
