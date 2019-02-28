@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="/styles.css">
     <title>Webshop</title>
 </head>
 <body>
@@ -12,11 +12,11 @@
 
 <div class="webshopMainBox">
     <nav class="navbar">
-        <a href="/only-available" style="text-decoration:none" target="blank">ONLY AVAILABLE</a>
-        <a href="/cheapest-first" style="text-decoration:none" target="blank">CHEAPEST FIRST</a>
-        <a href="/contains-nike" style="text-decoration:none" target="blank">CONTAINS NIKE</a>
-        <a href="/average-stock" style="text-decoration:none" target="blank">AVERAGE STOCK</a>
-        <a href="/most-expensive-available" style="text-decoration:none" target="blank">MOST EXPENSIVE AVAILABLE</a>
+        <a href="/webshop/only-available" style="text-decoration:none" target="blank">ONLY AVAILABLE</a>
+        <a href="/webshop/cheapest-first" style="text-decoration:none" target="blank">CHEAPEST FIRST</a>
+        <a href="/webshop/contains-nike" style="text-decoration:none" target="blank">CONTAINS NIKE</a>
+        <a href="/webshop/average-stock" style="text-decoration:none" target="blank">AVERAGE STOCK</a>
+        <a href="/webshop/most-expensive-available" style="text-decoration:none" target="blank">MOST EXPENSIVE AVAILABLE</a>
     </nav>
 
     <p class="result" th:text="${result}"></p>

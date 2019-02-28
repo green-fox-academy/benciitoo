@@ -39,7 +39,7 @@ public class WebshopMainController {
         return "webshop";
     }
 
-    @RequestMapping("/only-available")
+    @RequestMapping("/webshop/only-available")
     public String onlyAvailableList(Model model) {
         List<Item> availableList = shopItemsList.stream()
                 .filter(item -> item.getQuantity() > 0)
@@ -48,7 +48,7 @@ public class WebshopMainController {
         return "webshop";
     }
 
-    @RequestMapping("/cheapest-first")
+    @RequestMapping("/webshop/cheapest-first")
     public String returnsCheapestFirstList(Model model) {
         List<Item> cheapestFirstList = shopItemsList.stream()
                 .sorted(Comparator.comparing(Item::getPrice))
@@ -57,7 +57,7 @@ public class WebshopMainController {
         return "webshop";
     }
 
-    @RequestMapping("/contains-nike")
+    @RequestMapping("/webshop/contains-nike")
     public String returnsListThatContainsNike(Model model) {
         List<Item> listThatContainsNike = shopItemsList.stream()
                 .filter(x -> x.getName().toLowerCase().contains("nike") || x.getDescription().toLowerCase().contains("nike"))
@@ -66,7 +66,7 @@ public class WebshopMainController {
         return "webshop";
     }
 
-    @RequestMapping("/average-stock")
+    @RequestMapping("/webshop/average-stock")
     public String returnsAverageStock(Model model) {
         double average = shopItemsList.stream()
                 .mapToDouble(Item::getQuantity)
@@ -77,7 +77,7 @@ public class WebshopMainController {
         return "getnumbers";
     }
 
-    @RequestMapping("/most-expensive-available")
+    @RequestMapping("/webshop/most-expensive-available")
     public String returnsMostExpensiveItem(Model model) {
         List<Item> tempList = shopItemsList.stream()
                 .sorted(Comparator.comparing(Item::getPrice))
@@ -97,7 +97,7 @@ public class WebshopMainController {
         return "getnumbers";
     }
 
-    @PostMapping("/search")
+    @PostMapping("/webshop/search")
     public String search(Model model, @RequestParam("searchField") String keyword) {
         List<Item> megsemszarlakle = shopItemsList.stream()
                 .filter(x -> x.getName().toLowerCase().contains(keyword) || x.getDescription().toLowerCase().contains(keyword))
