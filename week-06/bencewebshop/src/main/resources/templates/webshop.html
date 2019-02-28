@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Webshop</title>
+</head>
+<body>
+
+<h1><a href="/webshop">My Shop</a></h1>
+<hr>
+
+<div class="webshopMainBox">
+    <nav class="navbar">
+        <a href="/only-available" style="text-decoration:none" target="blank">ONLY AVAILABLE</a>
+        <a href="/cheapest-first" style="text-decoration:none" target="blank">CHEAPEST FIRST</a>
+        <a href="/contains-nike" style="text-decoration:none" target="blank">CONTAINS NIKE</a>
+        <a href="/average-stock" style="text-decoration:none" target="blank">AVERAGE STOCK</a>
+        <a href="/most-expensive-available" style="text-decoration:none" target="blank">MOST EXPENSIVE AVAILABLE</a>
+    </nav>
+
+
+    <form class="formbox" method="POST" action="/search">
+        <label class="searchLabel" for="searchbox">Search for: </label>
+        <input id="searchbox" type="search" name="searchField" placeholder="something like nike...">
+    </form>
+
+
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity of Stock</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item : ${items}">
+                <td class="nameField" th:text="${item.getName()}"></td>
+                <td class="descriptionField" th:text="${item.getDescription()}"></td>
+                <td class="priceField" th:text="${item.getPrice()} + ' Ft'"></td>
+                <td class="quantityField" th:text="${item.getQuantity()}"></td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+
+</div>
+
+</body>
+</html>

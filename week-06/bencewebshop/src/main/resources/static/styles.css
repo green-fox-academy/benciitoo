@@ -1,0 +1,90 @@
+body{
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+h1{
+    margin-bottom: 1px;
+}
+
+h1 a{
+    text-decoration: none;
+    color: deepskyblue;
+    margin-bottom: 0px;
+}
+
+hr{
+    height: 5px;
+    background-color: deepskyblue;
+    margin-top: 0;
+}
+
+.navbar{
+    display:flex;
+    justify-content: space-between;
+}
+
+.navbar a{
+    padding: 10px 20px 10px 20px;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    font-size: 15px;
+}
+
+.formbox{
+    padding-top: 30px;
+}
+
+.searchLabel{
+    color: lightsalmon;
+    font-family: "Microsoft PhagsPa";
+    font-size: 18px;
+}
+
+#searchbox{
+    width: 300px;
+    height: 30px;
+}
+
+
+input {
+    display: block;
+}
+
+table{
+    width: 100%;
+}
+
+th{
+    width: auto;
+    color: black;
+    background-color: lightskyblue;
+    font-size: 25px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+td{
+    width: auto;
+}
+
+.nameField{
+    font-size: 30px;
+}
+
+.descriptionField{
+    font-size: 18px;
+}
+
+.priceField{
+    font-size: 40px;
+}
+
+.quantityField{
+    font-size: 40px;
+}
+
+.result{
+    font-size: 40px;
+}
