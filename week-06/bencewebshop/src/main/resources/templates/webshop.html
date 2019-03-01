@@ -20,16 +20,14 @@
             AVAILABLE</a>
     </nav>
 
-
     <form class="formbox" method="POST" action="/webshop/search">
         <label class="searchLabel" for="searchbox">Search for: </label>
         <br>
         <div class="searchDiv">
-            <input id="searchbox" type="search" name="searchField" placeholder="something like nike...">
+            <input id="searchbox" type="search" name="searchField" placeholder="something like shirt...">
             <input class="submitButton" type="submit" value="Search">
         </div>
     </form>
-
 
     <div>
         <table>
@@ -49,10 +47,8 @@
                 <td class="quantityField" th:text="${item.getQuantity()}"></td>
             </tr>
             </tbody>
-
         </table>
     </div>
-
 
 </div>
 

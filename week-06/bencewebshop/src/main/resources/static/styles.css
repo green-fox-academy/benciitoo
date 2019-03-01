@@ -56,25 +56,17 @@ hr{
     width: 78%;
     height: 60px;
     font-size: 30px;
-    padding: 0;
-    margin-left: 0;
     margin-right: 1%;
 }
 
 .submitButton{
     width: 20%;
-    /*padding: 14px 20px 13px 20px;*/
-    padding-left: 0;
-    padding-right: 0;
-    margin: 0;
-    padding-top: 14px;
-    padding-bottom: 13px;
+    padding: 14px 0 13px 0;
     background-color: red;
     border-radius: 10px;
     border-style: hidden;
     color: white;
     font-size: 30px;
-    text-align: center;
 }
 
 table{
