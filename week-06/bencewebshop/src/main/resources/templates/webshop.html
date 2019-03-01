@@ -16,14 +16,18 @@
         <a href="/webshop/cheapest-first" style="text-decoration:none" target="blank">CHEAPEST FIRST</a>
         <a href="/webshop/contains-nike" style="text-decoration:none" target="blank">CONTAINS NIKE</a>
         <a href="/webshop/average-stock" style="text-decoration:none" target="blank">AVERAGE STOCK</a>
-        <a href="/webshop/most-expensive-available" style="text-decoration:none" target="blank">MOST EXPENSIVE AVAILABLE</a>
+        <a href="/webshop/most-expensive-available" style="text-decoration:none" target="blank">MOST EXPENSIVE
+            AVAILABLE</a>
     </nav>
 
 
     <form class="formbox" method="POST" action="/webshop/search">
         <label class="searchLabel" for="searchbox">Search for: </label>
-        <input id="searchbox" type="search" name="searchField" placeholder="something like nike...">
-        <input type="submit" value="search">
+        <br>
+        <div class="searchDiv">
+            <input id="searchbox" type="search" name="searchField" placeholder="something like nike...">
+            <input class="submitButton" type="submit" value="Search">
+        </div>
     </form>
 
 
@@ -31,10 +35,10 @@
         <table>
             <thead>
             <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Quantity of Stock</th>
+                <th class="thName">Name</th>
+                <th class="thDescription">Description</th>
+                <th class="thPrice">Price</th>
+                <th class="thQuantity">Quantity of Stock</th>
             </tr>
             </thead>
             <tbody>

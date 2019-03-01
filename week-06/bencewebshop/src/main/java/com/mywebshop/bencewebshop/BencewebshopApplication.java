@@ -9,18 +9,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @SpringBootApplication
 @Controller
 
-
 public class BencewebshopApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BencewebshopApplication.class, args);
     }
-
-    @RequestMapping("/hello")
-    @ResponseBody
-    public static String hello(){
-        return "Hello world!";
-    }
-
-
 }

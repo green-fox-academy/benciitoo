@@ -1,6 +1,5 @@
 package com.mywebshop.bencewebshop.controllers;
 
-
 import com.mywebshop.bencewebshop.models.Item;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +11,6 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import static java.util.Comparator.comparing;
 
 @Controller
 public class WebshopMainController {
@@ -83,7 +80,6 @@ public class WebshopMainController {
                 .sorted(Comparator.comparing(Item::getPrice))
                 .collect(Collectors.toList());
         String mostExpensiveItemName = "The most expensive item from our shop is: " + tempList.get(tempList.size() - 1).getName();
-
         /*List<Item> nameOfMostExpensive;
         nameOfMostExpensive = stock.stream()
                 .sorted((a, b) -> a.getPrice() >= b.getPrice() ? -1 : 1)
@@ -92,18 +88,17 @@ public class WebshopMainController {
 
                 Itt a sorted-nél az egészet sorbarendezi, a limit egy elemet vesz ki, a legelsőt a listából, amit itt a legnagyobb
                 */
-
         model.addAttribute("result", mostExpensiveItemName);
         return "getnumbers";
     }
 
     @PostMapping("/webshop/search")
     public String search(Model model, @RequestParam("searchField") String keyword) {
-        List<Item> megsemszarlakle = shopItemsList.stream()
-                .filter(x -> x.getName().toLowerCase().contains(keyword) || x.getDescription().toLowerCase().contains(keyword))
+        List<Item> returnSearchResultList = shopItemsList.stream()
+                .filter(x -> x.getName().toLowerCase().contains(keyword.toLowerCase()) ||
+                        x.getDescription().toLowerCase().contains(keyword.toLowerCase()))
                 .collect(Collectors.toList());
-        model.addAttribute("items", megsemszarlakle);
+        model.addAttribute("items", returnSearchResultList);
         return "webshop";
     }
-
 }
