@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Controller
 public class WebshopMainController {
 
-    List<Item> shopItemsList = new ArrayList<>();
+    private List<Item> shopItemsList = new ArrayList<>();
 
     public void initializeList() {
         shopItemsList.add(new Item("Running shoes", "Nike running shoes for every day sport", 2000, 24));
@@ -100,5 +100,33 @@ public class WebshopMainController {
                 .collect(Collectors.toList());
         model.addAttribute("items", returnSearchResultList);
         return "webshop";
+    }
+
+
+//Shop Management Mappings
+    @RequestMapping("/webshop/shop-management")
+    public String returnShopmanagement(){
+        return "shopmanagement";
+    }
+
+    @RequestMapping("/webshop/adding-item")
+    public String returnAddingitem(){
+        return "addingitem";
+    }
+
+    @PostMapping("/webshop/adding-item/added")
+    public String addNewItemToShopItemsList(Model model,
+                                            @RequestParam("itemNameField") String itemName,
+                                            @RequestParam("itemDescriptionField") String description,
+                                            @RequestParam("itemPriceField") int price,
+                                            @RequestParam("itemQuantityField") int quantity){
+        shopItemsList.add(new Item(itemName, description, price, quantity));
+
+        String newItemSummary = "New shop item added: \nName: " + itemName +
+                "\nDescription: " + description +
+                "\tPrice " + price + " Ft" +
+                "\nQuantity: " + quantity;
+        model.addAttribute("shopManagingSummary", newItemSummary);
+        return "addingitem";
     }
 }

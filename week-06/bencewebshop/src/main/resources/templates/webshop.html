@@ -7,44 +7,46 @@
 </head>
 <body>
 
-<h1><a href="/webshop">My Shop</a></h1>
-<hr>
 
-<div class="webshopMainBox">
-    <div th:insert="fragment/navbar :: navigationbar">
-    </div>
 
-    <form class="formbox" method="POST" action="/webshop/search">
-        <label class="searchLabel" for="searchbox">Search for: </label>
-        <br>
-        <div class="searchDiv">
-            <input id="searchbox" type="search" name="searchField" placeholder="something like shirt...">
-            <input class="submitButton" type="submit" value="Search">
-        </div>
-    </form>
-
-    <div>
-        <table>
-            <thead>
-            <tr>
-                <th class="thName">Name</th>
-                <th class="thDescription">Description</th>
-                <th class="thPrice">Price</th>
-                <th class="thQuantity">Quantity of Stock</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="itemRow" th:each="item : ${items}">
-                <td class="nameField" th:text="${item.getName()}"></td>
-                <td class="descriptionField" th:text="${item.getDescription()}"></td>
-                <td class="priceField" th:text="${item.getPrice()} + ' Ft'"></td>
-                <td class="quantityField" th:text="${item.getQuantity()}"></td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-
+<div th:insert="fragment/navbar :: upperNavigationBar">
 </div>
+
+<form class="formbox" method="POST" action="/webshop/search">
+    <label class="searchLabel" for="searchbox">Search for: </label>
+    <br>
+    <div class="searchDiv">
+        <input id="searchbox" type="search" name="searchField" placeholder="something like shirt...">
+        <input class="submitButton" type="submit" value="Search">
+    </div>
+</form>
+
+<div>
+    <table>
+        <thead>
+        <tr>
+            <th class="thName">Name</th>
+            <th class="thDescription">Description</th>
+            <th class="thPrice">Price</th>
+            <th class="thQuantity">Quantity of Stock</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="itemRow" th:each="item : ${items}">
+            <td class="nameField" th:text="${item.getName()}"></td>
+            <td class="descriptionField" th:text="${item.getDescription()}"></td>
+            <td class="priceField" th:text="${item.getPrice()} + ' Ft'"></td>
+            <td class="quantityField" th:text="${item.getQuantity()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+
+<div th:insert="fragment/navbar :: lowerNavigationBar">
+</div>
+
+
 
 </body>
 </html>

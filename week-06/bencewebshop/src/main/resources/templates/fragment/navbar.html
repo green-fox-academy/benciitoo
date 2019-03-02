@@ -7,22 +7,39 @@
 </head>
 <body>
 
+    <div th:fragment="upperNavigationBar">
+        <h1><a href="/webshop">My Shop</a></h1>
+        <hr>
 
-<h1><a href="/webshop">My Shop</a></h1>
-<hr>
-
-<div class="webshopMainBox">
-    <div th:fragment="navigationbar">
         <nav class="navbar">
-            <a href="/webshop/only-available" style="text-decoration:none" target="blank">ONLY AVAILABLE</a>
-            <a href="/webshop/cheapest-first" style="text-decoration:none" target="blank">CHEAPEST FIRST</a>
-            <a href="/webshop/contains-nike" style="text-decoration:none" target="blank">CONTAINS NIKE</a>
-            <a href="/webshop/average-stock" style="text-decoration:none" target="blank">AVERAGE STOCK</a>
-            <a href="/webshop/most-expensive-available" style="text-decoration:none" target="blank">MOST EXPENSIVE
-                AVAILABLE</a>
+            <a href="/webshop/only-available" target="blank">ONLY AVAILABLE</a>
+            <a href="/webshop/cheapest-first" target="blank">CHEAPEST FIRST</a>
+            <a href="/webshop/contains-nike" target="blank">CONTAINS NIKE</a>
+            <a href="/webshop/average-stock" target="blank">AVERAGE STOCK</a>
+            <a href="/webshop/most-expensive-available" target="blank">MOST EXPENSIVE AVAILABLE</a>
         </nav>
-
     </div>
-</div>
+
+
+    <div th:fragment="lowerNavigationBar">
+      <nav class="lowernavbar">
+          <a href="/webshop/shop-management" target="blank">Shop Management</a>
+          <a href="/webshop/cheapest-first" target="blank">under constr.</a>
+       </nav>
+    </div>
+
+
+    <div th:fragment="managementNavigationBar">
+        <h1><a href="/webshop">My Shop</a></h1>
+        <hr>
+
+        <nav class="lowernavbar">
+            <a href="/webshop/adding-item" target="blank">ADD ITEM</a>
+            <a href="/webshop/cheapest-first" target="blank">under constr.</a>
+        </nav>
+    </div>
+
+
+
 </body>
 </html>

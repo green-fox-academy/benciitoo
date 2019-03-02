@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <title>Webshop AddItem Page</title>
+</head>
+<body>
+
+
+<div th:insert="fragment/navbar :: managementNavigationBar">
+</div>
+
+    <div class="addingItemMainBox">
+        <form class="addingItemFormClass" method="POST" action="/webshop/adding-item/added">
+            <label for="itemName">Add the name of the new shop item</label>
+            <input id="itemName" name="itemNameField" type="text">
+            <label for="itemDescription">Write a short description for the new shop item</label>
+            <input id="itemDescription" name="itemDescriptionField" type="text">
+            <label for="itemPrice">Add the price (per piece) of the new shop item</label>
+            <input id="itemPrice" name="itemPriceField" type="text">
+            <label for="itemQuantity">Add the quantity of the new shop item</label>
+            <input id="itemQuantity" name="itemQuantityField" type="text">
+            <input id="itemSubmitButton" type="submit" value="Add">
+        </form>
+    </div>
+
+<p class="summary" th:text="${shopManagingSummary}"></p>
+
+</body>
+</html>
