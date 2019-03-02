@@ -79,14 +79,14 @@ public class WebshopMainController {
         List<Item> tempList = shopItemsList.stream()
                 .sorted(Comparator.comparing(Item::getPrice))
                 .collect(Collectors.toList());
-        String mostExpensiveItemName = "The most expensive item from our shop is: " + tempList.get(tempList.size() - 1).getName();
+        String mostExpensiveItemName = "The most expensive item in our shop is: " + tempList.get(tempList.size() - 1).getName();
         /*List<Item> nameOfMostExpensive;
         nameOfMostExpensive = stock.stream()
                 .sorted((a, b) -> a.getPrice() >= b.getPrice() ? -1 : 1)
                 .limit(1)
                 .collect(Collectors.toList());
 
-                Itt a sorted-nél az egészet sorbarendezi, a limit egy elemet vesz ki, a legelsőt a listából, amit itt a legnagyobb
+                Itt a sorted-nél az egészet sorbarendezi, a limit egy elemet vesz ki, a legelsőt a listából, ami itt a legnagyobb
                 */
         model.addAttribute("result", mostExpensiveItemName);
         return "getnumbers";

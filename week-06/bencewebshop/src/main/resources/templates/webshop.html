@@ -11,14 +11,8 @@
 <hr>
 
 <div class="webshopMainBox">
-    <nav class="navbar">
-        <a href="/webshop/only-available" style="text-decoration:none" target="blank">ONLY AVAILABLE</a>
-        <a href="/webshop/cheapest-first" style="text-decoration:none" target="blank">CHEAPEST FIRST</a>
-        <a href="/webshop/contains-nike" style="text-decoration:none" target="blank">CONTAINS NIKE</a>
-        <a href="/webshop/average-stock" style="text-decoration:none" target="blank">AVERAGE STOCK</a>
-        <a href="/webshop/most-expensive-available" style="text-decoration:none" target="blank">MOST EXPENSIVE
-            AVAILABLE</a>
-    </nav>
+    <div th:insert="fragment/navbar :: navigationbar">
+    </div>
 
     <form class="formbox" method="POST" action="/webshop/search">
         <label class="searchLabel" for="searchbox">Search for: </label>
@@ -40,7 +34,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr th:each="item : ${items}">
+            <tr class="itemRow" th:each="item : ${items}">
                 <td class="nameField" th:text="${item.getName()}"></td>
                 <td class="descriptionField" th:text="${item.getDescription()}"></td>
                 <td class="priceField" th:text="${item.getPrice()} + ' Ft'"></td>

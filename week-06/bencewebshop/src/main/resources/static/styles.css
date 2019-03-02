@@ -15,7 +15,7 @@ h1 a{
 }
 
 hr{
-    height: 5px;
+    height: 3px;
     background-color: deepskyblue;
     margin-top: 0;
     border-style: hidden;
@@ -29,6 +29,14 @@ hr{
 .navbar a{
     padding: 10px 20px 10px 20px;
     background-color: red;
+    border-radius: 10px;
+    color: white;
+    font-size: 20px;
+}
+
+.navbar a:hover{
+    padding: 10px 20px 10px 20px;
+    background-color: orange;
     border-radius: 10px;
     color: white;
     font-size: 20px;
@@ -59,10 +67,29 @@ hr{
     margin-right: 1%;
 }
 
+#searchbox:hover{
+    border: 2px solid orange;
+    border-radius: 10px;
+    width: 78%;
+    height: 60px;
+    font-size: 30px;
+    margin-right: 1%;
+}
+
 .submitButton{
     width: 20%;
     padding: 14px 0 13px 0;
     background-color: red;
+    border-radius: 10px;
+    border-style: hidden;
+    color: white;
+    font-size: 30px;
+}
+
+.submitButton:hover{
+    width: 20%;
+    padding: 14px 0 13px 0;
+    background-color: orange;
     border-radius: 10px;
     border-style: hidden;
     color: white;
@@ -104,6 +131,17 @@ td{
     width: auto;
     padding-top: 10px;
     padding-bottom: 10px;
+}
+
+/*td:hover{
+    background-color: lightgrey;
+    font-family: Consolas;
+    width: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}*/
+.itemRow:hover{
+    background-color: lightgrey;
 }
 
 .nameField{
