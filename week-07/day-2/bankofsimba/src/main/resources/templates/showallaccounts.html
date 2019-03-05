@@ -2,7 +2,8 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <title>Bank of Simba - show account</title>
-    <meta charset="utf-8" />
+    <meta charset="utf-8"/>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 
 <body>
@@ -15,19 +16,50 @@
             <th>Balance</th>
             <th>Animal type</th>
             <th>Index</th>
+            <th>Good or Bad</th>
         </tr>
         </thead>
         <tbody>
-        <tr th:each="account : ${accounts}">
+        <tr th:each="account : ${accounts}" th:style="${account.isKing()} ? 'color:red; : color:black;'">
+
             <td th:text="${account.name}"></td>
             <td th:text="${account.balance}"></td>
             <td th:text="${account.animalType}"></td>
             <td th:text="${accountStat.index + 1}"></td>
+            <!--<td th:switch="${account.isGoodGuy()}">
+                <span th:case="true">Good one</span>
+                <span th:case="false">Bad guy</span>
+            </td>-->
+            <td>
+                <span th:if="${account.isGoodGuy()}">Good one</span>
+                <span th:if="${not account.isGoodGuy()}">Bad guy</span>
+            </td>
+
         </tr>
         </tbody>
     </table>
 
+    <p>Type in the animal's name whose money you want to raise:</p>
+    <form method="post" action="/showaccounts">
+        <input type="text" name="nameField" placeholder="the animal's name...">
+        <input type="submit" value="Raise money">
+    </form>
+    <br>
 
+    <p>Add a new account:</p>
+    <form method="post" action="/showaccounts/addaccountbox">
+        <input type="text" name="nameField" placeholder="animal's name...">
+        <input type="number" name="balanceField" placeholder="balance...">
+        <input type="text" name="animaltypeField" placeholder="animal type...">
+        <label for="kingornot">Is it a king?</label>
+        <input type="hidden" name="isItKing" value="nem">
+        <input type="checkbox" name="isItKing" id="kingornot" value="igen">
+        <label for="goodorbad">Is it a good guy?</label>
+        <input type="hidden" name="isItGoodGuy" value="nem">
+        <input type="checkbox" name="isItGoodGuy" id="goodorbad" value="igen">
+
+        <input type="submit" value="Add account">
+    </form>
 
 </div>
 </body>
