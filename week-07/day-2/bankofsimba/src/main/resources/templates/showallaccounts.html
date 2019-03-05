@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Bank of Simba - show account</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+<div>
+
+    <table style="width: 100%">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Balance</th>
+            <th>Animal type</th>
+            <th>Index</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="account : ${accounts}">
+            <td th:text="${account.name}"></td>
+            <td th:text="${account.balance}"></td>
+            <td th:text="${account.animalType}"></td>
+            <td th:text="${accountStat.index + 1}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+

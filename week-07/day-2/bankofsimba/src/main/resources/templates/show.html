@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Bank of Simba - show account</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+<div>
+        <p th:text="|Name: ${account.name},
+        Balance: ${#numbers.formatDecimal(account.balance, 1, 'NONE', 2, 'DEFAULT')} Zebra,
+        Animal type: ${account.getAnimalType()}|"></p>
+</div>
+</body>
+</html>
