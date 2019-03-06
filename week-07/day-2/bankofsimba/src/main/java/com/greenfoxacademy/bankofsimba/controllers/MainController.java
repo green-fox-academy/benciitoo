@@ -50,7 +50,7 @@ public class MainController {
     }
 
 
-    @PostMapping(path = "/showaccounts")
+    @PostMapping(path = "/showaccounts/raise")
     public String raiseMoneyForAnAnimal(Model model, @RequestParam ("nameField") String nameX){
 
         for (BankAccount account : bankAccountList) {
