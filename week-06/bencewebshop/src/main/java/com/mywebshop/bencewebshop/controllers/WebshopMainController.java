@@ -122,10 +122,8 @@ public class WebshopMainController {
                                             @RequestParam("itemQuantityField") int quantity){
         shopItemsList.add(new Item(itemName, description, price, quantity));
 
-        String newItemSummary = "New shop item added: \nName: " + itemName +
-                "\nDescription: " + description +
-                "\tPrice " + price + " Ft" +
-                "\nQuantity: " + quantity;
+        String newItemSummary = "New shop item added: Name: " + itemName +
+                ", Description: " + description + ", Price " + price + " Ft" + ", Quantity: " + quantity;
         model.addAttribute("shopManagingSummary", newItemSummary);
         return "addingitem";
     }
