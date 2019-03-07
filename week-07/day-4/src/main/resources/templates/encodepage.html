@@ -3,11 +3,14 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <!-- <link rel="stylesheet" type="text/css" href="/styles.css">-->
-    <title>Color page</title>
+    <title>Encoding page</title>
 </head>
-<body th:style="'background-color:'+${randomcolor}+';'">
-
+<body>
+<a href="/useful/colored">Random color</a>
 <a href="/useful">To main page</a>
+
+
+<p th:text="${encoded}"></p>
 
 </body>
 </html>

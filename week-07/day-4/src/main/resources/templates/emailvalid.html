@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!-- <link rel="stylesheet" type="text/css" href="/styles.css">-->
+    <title>Is my email valid?</title>
+</head>
+<body>
+<a href="/useful/colored">Random color</a>
+<a href="/useful">To main page</a>
+
+
+<p th:if="${isItValid}" th:style="'color:green'" th:text="${email} + ' is a valid email'"></p>
+<p th:if="${not isItValid}" th:style="'color:red'" th:text="${email} + ' is not a valid email'"></p>
+
+</body>
+</html>
