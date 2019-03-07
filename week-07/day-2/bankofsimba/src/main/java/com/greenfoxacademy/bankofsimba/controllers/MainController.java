@@ -46,11 +46,12 @@ public class MainController {
     @GetMapping(path = "/showaccounts")
     public String showAllAccounts(Model model){
         model.addAttribute("accounts", bankAccountList);
+        model.addAttribute("newaccount", new BankAccount());
         return "showallaccounts";
     }
 
 
-    @PostMapping(path = "/showaccounts/raise")
+    @PostMapping(path = "/showaccounts")
     public String raiseMoneyForAnAnimal(Model model, @RequestParam ("nameField") String nameX){
 
         for (BankAccount account : bankAccountList) {
@@ -68,23 +69,8 @@ public class MainController {
 
 
     @PostMapping(path = "/showaccounts/addaccountbox")
-    public String addAccount(Model model, @RequestParam ("nameField") String newName,
-                             @RequestParam ("balanceField") double newBalance,
-                             @RequestParam ("animaltypeField") String newAnimalType,
-                             @RequestParam ("isItKing") String kingOrNot,
-                             @RequestParam ("isItGoodGuy") String goodOrNot){
-        boolean king = false;
-        boolean good = false;
-
-        if (kingOrNot.equals("igen")) {
-            king = true;
-        }
-
-        if (goodOrNot.equals("igen")) {
-            good = true;
-        }
-        bankAccountList.add(new BankAccount(newName, newBalance, newAnimalType, king, good));
-
+    public String addAccount(Model model, @ModelAttribute ("newaccount") BankAccount newBankAccount){
+        bankAccountList.add(newBankAccount);
         model.addAttribute("accounts", bankAccountList);
         return "showallaccounts";
     }

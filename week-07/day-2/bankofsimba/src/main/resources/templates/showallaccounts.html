@@ -40,23 +40,29 @@
     </table>
 
     <p>Type in the animal's name whose money you want to raise:</p>
-    <form method="post" action="/showaccounts/raise">
+    <form method="post" action="/showaccounts">
         <input type="text" name="nameField" placeholder="the animal's name...">
         <input type="submit" value="Raise money">
     </form>
     <br>
 
     <p>Add a new account:</p>
-    <form method="post" action="/showaccounts/addaccountbox">
-        <input type="text" name="nameField" placeholder="animal's name...">
-        <input type="number" name="balanceField" placeholder="balance...">
-        <input type="text" name="animaltypeField" placeholder="animal type...">
+    <form method="post" action = "#" th:action="@{/showaccounts/addaccountbox}" th:object="${newaccount}">
+        <input type="text" name="name" th:field="*{name}" required/>
+
+        <input type="number" name="balanceField" th:field="*{balance}" required/>
+
+        <input type="text" name="animaltypeField" th:field="*{animalType}" required/>
+
+
         <label for="kingornot">Is it a king?</label>
-        <input type="hidden" name="isItKing" value="nem">
-        <input type="checkbox" name="isItKing" id="kingornot" value="igen">
-        <label for="goodorbad">Is it a good guy?</label>
-        <input type="hidden" name="isItGoodGuy" value="nem">
-        <input type="checkbox" name="isItGoodGuy" id="goodorbad" value="igen">
+        <input type="checkbox" id="kingornot" th:field="*{king}"/>
+
+        <label th:text="'Good:'"></label>
+        <input type="radio" name="good" value="true" th:field="*{goodGuy}" checked>
+        <label th:text="'Bad:'"></label>
+        <input type="radio" name="good" value="false" th:field="*{goodGuy}">
+
 
         <input type="submit" value="Add account">
     </form>
