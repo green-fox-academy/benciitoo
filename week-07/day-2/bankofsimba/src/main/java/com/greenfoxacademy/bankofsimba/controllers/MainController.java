@@ -64,7 +64,7 @@ public class MainController {
             }
         }
         model.addAttribute("accounts", bankAccountList);
-        return "showallaccounts";
+        return "redirect:/showaccounts";
     }
 
 
@@ -72,7 +72,7 @@ public class MainController {
     public String addAccount(Model model, @ModelAttribute ("newaccount") BankAccount newBankAccount){
         bankAccountList.add(newBankAccount);
         model.addAttribute("accounts", bankAccountList);
-        return "showallaccounts";
+        return "redirect:/showaccounts";
     }
 
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Index page</title>
+    <meta charset="utf-8"/>
+</head>
+
+<body>
+<div>
+    <div>
+    <a href="/">Information</a>
+    </div>
+
+    <div>
+    <img src="greenfox.png" alt="A green fox">
+    </div>
+
+    <p>This is Mr. <span th:text="${name}"></span> He lives on pizza and lemonade. He knows two tricks.</p>
+
+    <h2>Known tricks</h2>
+
+    <ul>
+        <li>write HTML</li>
+        <li>code in Java</li>
+    </ul>
+
+</div>
+</body>
+</html>
