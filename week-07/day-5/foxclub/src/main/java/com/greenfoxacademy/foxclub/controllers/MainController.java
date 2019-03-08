@@ -36,12 +36,38 @@ public class MainController {
     }
 
     @PostMapping(value = "/login")
-    public String loginPagePost(String name) {
-        if (!name.equals("")) {
+    public String loginPagePost(Model model, String name) {
+        boolean isss = true;
+
+        if (foxListService.isItIn(name)){
             return "redirect:/?username=" + name;
-        } else {
+            /*isss = true;
+            model.addAttribute("already", isss);
+            return "login";*/
+
+        } else if (name.equals("")) {
             return "redirect:/login";
+            /*return "redirect:/login/?username=" + name;*/
+        }
+
+        else {
+            if (!foxListService.isItIn(name))
+                model.addAttribute("already", isss);
+            return "login";
         }
     }
 
 }
+
+
+/*
+(foxListService.isItIn(name)){
+        isss = true;
+        model.addAttribute("already", "picsa");
+        return "login";
+        }
+
+
+        (!name.equals("")) {
+        return "redirect:/login/?username=" + name;
+        } */

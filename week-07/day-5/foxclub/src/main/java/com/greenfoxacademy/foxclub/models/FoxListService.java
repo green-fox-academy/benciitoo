@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class FoxListService {
@@ -19,5 +20,22 @@ public class FoxListService {
     }
 
 
+    public List<Fox> getListOfFoxes() {
+        return listOfFoxes;
+    }
 
+    public void setListOfFoxes(List<Fox> listOfFoxes) {
+        this.listOfFoxes = listOfFoxes;
+    }
+
+
+    
+
+    public boolean isItIn(String name){
+        boolean isItInAlready = true;
+        if (listOfFoxes.stream().filter(x -> x.getName().equals(name)).collect(Collectors.toList()).size() == 0) {
+            isItInAlready = false;
+        }
+        return isItInAlready;
+    }
 }
