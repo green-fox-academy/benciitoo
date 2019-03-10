@@ -46,7 +46,7 @@ public class MainController {
     @GetMapping(path = "/showaccounts")
     public String showAllAccounts(Model model){
         model.addAttribute("accounts", bankAccountList);
-        model.addAttribute("newaccount", new BankAccount());
+        model.addAttribute("newaccount", new BankAccount()); //emiatt köti össze később (newaccount)
         return "showallaccounts";
     }
 
