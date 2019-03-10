@@ -15,14 +15,23 @@
     <img src="greenfox.png" alt="A green fox">
     </div>
 
-    <p>This is Mr. <span th:text="${name}"></span> He lives on pizza and lemonade. He knows two tricks.</p>
+    <p th:text="'This is Mr. ' + ${actualFox.name} + '. Currently living on ' + ${actualFox.food} + ' and ' + ${actualFox.drink} + '. He knows ' + ${actualFox.listOfTricks.size()} + ' tricks.'"></p>
+
+    <!--He lives on pizza and lemonade. He knows two tricks.-->
+
 
     <h2>Known tricks</h2>
 
-    <ul>
-        <li>write HTML</li>
-        <li>code in Java</li>
-    </ul>
+    <div th:if="${actualFox.listOfTricks.size()==0}">
+        <p th:text="${actualFox.name} + ' does not know any tricks yet.' "></p>
+    </div>
+    <div th:if="${actualFox.listOfTricks.size()!=0}">
+        <ul th:each="trick : ${actualFox.listOfTricks}">
+            <li th:text="${trick}"></li>
+        </ul>
+    </div>
+
+
 
 </div>
 </body>

@@ -20,7 +20,31 @@ public class Fox {
         return name;
     }
 
+    public List<String> getListOfTricks() {
+        return listOfTricks;
+    }
+
+    public String getFood() {
+        return food;
+    }
+
+    public String getDrink() {
+        return drink;
+    }
+
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setListOfTricks(List<String> listOfTricks) {
+        this.listOfTricks = listOfTricks;
+    }
+
+    public void setFood(String food) {
+        this.food = food;
+    }
+
+    public void setDrink(String drink) {
+        this.drink = drink;
     }
 }

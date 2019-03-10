@@ -27,6 +27,7 @@ public class MainController {
     @GetMapping(value = "/")
     public String getIndexPage(Model model, @RequestParam(value = "username", required = false, defaultValue = "Fox") String name) {
         model.addAttribute("name", name);
+        model.addAttribute("actualFox", foxListService.getFox(name));
         return "index";
     }
 
@@ -37,37 +38,21 @@ public class MainController {
 
     @PostMapping(value = "/login")
     public String loginPagePost(Model model, String name) {
-        boolean isss = true;
+        return "redirect:/?username=" + name;
 
+        //Ez az optional része volt a Login page-nek, de ellentmond a logikával, ha továbbcsinálom a feladatot.
+        /*
+        boolean isss = true;
         if (foxListService.isItIn(name)){
             return "redirect:/?username=" + name;
-            /*isss = true;
-            model.addAttribute("already", isss);
-            return "login";*/
-
         } else if (name.equals("")) {
             return "redirect:/login";
-            /*return "redirect:/login/?username=" + name;*/
         }
-
         else {
             if (!foxListService.isItIn(name))
                 model.addAttribute("already", isss);
             return "login";
-        }
+        }*/
     }
 
 }
-
-
-/*
-(foxListService.isItIn(name)){
-        isss = true;
-        model.addAttribute("already", "picsa");
-        return "login";
-        }
-
-
-        (!name.equals("")) {
-        return "redirect:/login/?username=" + name;
-        } */

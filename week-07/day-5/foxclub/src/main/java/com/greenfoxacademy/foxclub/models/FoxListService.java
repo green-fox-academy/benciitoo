@@ -28,9 +28,7 @@ public class FoxListService {
         this.listOfFoxes = listOfFoxes;
     }
 
-
-    
-
+    //Ez az optional része volt a Login page-nek, de ellentmond a logikával, ha továbbcsinálom a feladatot.
     public boolean isItIn(String name){
         boolean isItInAlready = true;
         if (listOfFoxes.stream().filter(x -> x.getName().equals(name)).collect(Collectors.toList()).size() == 0) {
@@ -38,4 +36,15 @@ public class FoxListService {
         }
         return isItInAlready;
     }
+
+    public Fox getFox(String foxName){
+        Fox selectedFox;
+        selectedFox = listOfFoxes.stream()
+                .filter(x -> x.getName().equalsIgnoreCase(foxName))
+                .findFirst()
+                .orElse(new Fox (foxName, Arrays.asList(), "", ""));
+        return selectedFox;
+    }
+
+
 }
