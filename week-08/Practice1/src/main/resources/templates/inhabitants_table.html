@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th=http://www.thymeleaf.org>
+<head>
+    <meta charset="UTF-8">
+    <title>Inhabitant Table</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+    </tr>
+    <tr th:each="inhabitant : ${inhabitants}">
+        <td th:text="${inhabitant.getId()}"></td>
+        <td>
+            <a th:href="@{'/inhabitants/' + ${inhabitant.getId()}}">
+                <span th:text="${inhabitant.getName()}"></span>
+            </a>
+        </td>
+        <td th:text="${inhabitant.getAge()}"></td>
+        <td th:text="${inhabitant.getGender()}"></td>
+    </tr>
+</table>
+</body>
+</html>
