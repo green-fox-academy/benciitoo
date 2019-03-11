@@ -5,7 +5,6 @@ import com.greenfoxacademy.connectwithmysql.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -38,6 +37,7 @@ public class TodoController {
         return "todolist";
     }
 
+
     @GetMapping (value = "/add")
     public String loadAddPage(Model model){
         model.addAttribute("newtodo", new Todo());
@@ -46,9 +46,30 @@ public class TodoController {
 
 
     @PostMapping(value = "/add")
-    public String addNewTodo(Model model, @ModelAttribute ("newtodo") Todo newTodo){
+    public String addNewTodo(@ModelAttribute ("newtodo") Todo newTodo){
         todoRepository.save(newTodo);
         return "redirect:/todo/list";
     }
 
+
+    @GetMapping(value = "/{id}/delete")
+    public String deleteTodo(@PathVariable("id") long id){
+        todoRepository.deleteById(id);
+        return "redirect:/todo/list";
+    }
+
+
+    @GetMapping(value = "/{id}/update")
+    public String loadUpdateTodoPage(Model model, @PathVariable long id){
+        model.addAttribute("id", id);
+        model.addAttribute("todotoedit", todoRepository.findById(id).get());
+        return "updatepage";
+    }
+
+
+    @PostMapping(value = "/{id}/update")
+    public String updateTodo(@PathVariable long id, @ModelAttribute Todo todotoedit){
+        todoRepository.save(todotoedit);
+        return "redirect:/todo/list";
+    }
 }

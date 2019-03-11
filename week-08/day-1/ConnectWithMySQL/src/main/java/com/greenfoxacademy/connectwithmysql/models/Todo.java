@@ -63,4 +63,8 @@ public class Todo {
     public void setDone(boolean done) {
         this.done = done;
     }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 }

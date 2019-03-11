@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h1  class="mainheader">TODOS FOR TODAY</h1>
+<h1 class="mainheader">TODOS FOR TODAY</h1>
 <a href="/todo/add">Add new todo</a>
 
 <table>
@@ -26,26 +26,16 @@
         <td class="titlerow" th:text="${todo.title}"></td>
         <td class="donerow" th:text="${todo.done}"></td>
         <td class="urgentrow" th:text="${todo.urgent}"></td>
-
-        <!--<td th:switch="${account.isGoodGuy()}">
-            <span th:case="true">Good one</span>
-            <span th:case="false">Bad guy</span>
-        </td>-->
-
+        <td class="deleterow">
+            <a th:href="@{'/todo/' + ${todo.id} + '/delete'}">delete</a>
+        </td>
+        <td class="deleterow">
+            <a th:href="@{'/todo/' + ${todo.id} + '/update'}">edit</a>
+        </td>
 
     </tr>
     </tbody>
 </table>
-
-
-
-
-<!--<div>
-    <ul th:each="todo : ${todolist}">
-        <li th:text="${todo.title}"></li>
-    </ul>
-</div>-->
-
 
 </body>
 </html>

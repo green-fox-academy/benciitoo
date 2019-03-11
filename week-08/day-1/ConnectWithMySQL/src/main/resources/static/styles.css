@@ -36,7 +36,7 @@ td{
     font-size: 20px;
 }
 
-.idrow {
+/*.idrow {
     width: 5%;
 }
 
@@ -50,9 +50,9 @@ td{
 
 .donerow {
     width: 7%;
-}
+}*/
 
-input {
+.blockinput {
     display: block;
 }
 
