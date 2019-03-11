@@ -23,12 +23,13 @@ public class ConnectwithmysqlApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        /*todoRepository.deleteAll();
         todoRepository.save(new Todo("Reggelizni", false, true));
         todoRepository.save(new Todo("Iskolába menni", true, true));
         todoRepository.save(new Todo("Szopni a feladatokkal", false, true));
         todoRepository.save(new Todo("Befejezni az összes feladatot"));
         todoRepository.save(new Todo("Megnézni a videójat", true, false));
         todoRepository.save(new Todo("Vacsorázni", true, false));
-        todoRepository.save(new Todo("Lefeküdni aludni", true, false));
+        todoRepository.save(new Todo("Lefeküdni aludni", true, false));*/
     }
 }

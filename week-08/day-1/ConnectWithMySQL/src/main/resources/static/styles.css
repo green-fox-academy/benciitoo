@@ -1,3 +1,58 @@
+body {
+    padding: 30px 50px;
+}
+
+.mainheader {
+    text-align: center;
+}
+
 li {
     padding: 10px;
 }
+
+table {
+    width: 100%;
+    padding: 10px;
+}
+
+
+table td, table th {
+    border: 3px solid darkgrey;
+}
+
+th {
+    text-align: center;
+    font-size: 25px;
+    font-weight: normal;
+    color: lightgrey;
+    background-color: black;
+}
+
+th, td {
+    padding: 10px;
+}
+
+td{
+    font-size: 20px;
+}
+
+.idrow {
+    width: 5%;
+}
+
+.titlerow {
+    width: 80%;
+}
+
+.urgentrow {
+    width: 8%;
+}
+
+.donerow {
+    width: 7%;
+}
+
+input {
+    display: block;
+}
+
