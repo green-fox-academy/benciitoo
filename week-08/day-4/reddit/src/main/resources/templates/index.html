@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Bence's Reddit</title>
+</head>
+<body>
+<h1>User Database</h1>
+<h2>Add a new User</h2>
+
+<form action="#" th:action="@{/app}" th:object="${new_user}" method="post">
+    <label for="firstname">First Name:</label>
+    <input type="text" id="firstname" th:field="*{firstName}" />
+    <label for="lastname">Last Name:</label>
+    <input type="text" id="lastname" th:field="*{lastName}" />
+    <p><input type="submit" value="Submit" /></p>
+</form>
+
+<h2>Existing users</h2>
+<table>
+    <tr>
+        <th>First name</th>
+        <th>Last name</th>
+    </tr>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.firstName}"></td>
+        <td th:text="${user.lastName}"></td>
+    </tr>
+</table>
+</body>
+</html>

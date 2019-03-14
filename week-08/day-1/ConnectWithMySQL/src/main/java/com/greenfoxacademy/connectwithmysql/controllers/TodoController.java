@@ -62,7 +62,7 @@ public class TodoController {
     @GetMapping(value = "/{id}/update")
     public String loadUpdateTodoPage(Model model, @PathVariable long id){
         model.addAttribute("id", id);
-        model.addAttribute("todotoedit", todoRepository.findById(id).get());
+        model.addAttribute("todotoedit", todoRepository.findById(id).orElseThrow(NullPointerException::new));
         return "updatepage";
     }
 
