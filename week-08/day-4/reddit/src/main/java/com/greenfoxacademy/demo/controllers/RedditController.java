@@ -3,6 +3,7 @@ package com.greenfoxacademy.demo.controllers;
 
 import com.greenfoxacademy.demo.services.RedditService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -18,8 +19,8 @@ public class RedditController {
 
 
     @GetMapping (value = {"", "/"})
-    public String mainpage(){
-
+    public String mainpage(Model model){
+        model.addAttribute("redditlist", redditService.getAllPosts());
         return "index";
     }
 

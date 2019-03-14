@@ -10,8 +10,7 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String postText;
-    private String link;
+    private String title;
     private int votes;
     @Temporal(TemporalType.DATE)
     private Date postDate;
@@ -19,6 +18,7 @@ public class Post {
 
     public Post(){
         postDate = new Date();
+        votes = 0;
     }
 
 
@@ -30,20 +30,12 @@ public class Post {
         this.id = id;
     }
 
-    public String getPostText() {
-        return postText;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPostText(String postText) {
-        this.postText = postText;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public int getVotes() {
