@@ -32,7 +32,7 @@ public class RedditController {
 
 
     @PostMapping(value = "/submit")
-    public String submitNewPost(@ModelAttribute("newPost") Post newPost){
+    public String submitNewPost(Post newPost){  //itt volt @ModelAttribute ("newPost"), de ilyenkor nem kell
         redditService.save(newPost);
         return "redirect:/reddit";
     }
