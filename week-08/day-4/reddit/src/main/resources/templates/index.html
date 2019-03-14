@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
     <meta charset="UTF-8"/>
     <title>Bence's Reddit</title>
 </head>
 <body>
 
 <a th:href="@{'/reddit/submit'}">Submit a new post</a>
-<h1>Trending posts</h1>
+<h1 class="trending">Trending posts</h1>
 
-<table>
+<table class="container-fluid">
     <tr th:each="post : ${redditlist}">
-        <td th:text="${post.votes}"></td>
-        <td>
+        <td class="col-lg-2" th:text="${post.votes}"></td>
+        <td class="bg-success text-warning col-lg-1">
             <a th:href="@{'/reddit/' + ${post.id} + '/upvote'}">+</a>
         </td>
-        <td>
+        <td class="bg-warning text-danger col-lg-1">
             <a th:href="@{'/reddit/' + ${post.id} + '/downvote'}">-</a>
         </td>
         <td>
-            <a target="_blank" th:href="${post.urlContent}" th:text="${post.title}"> </a>
+            <a class="col-lg-2 text-nowrap" target="_blank" th:href="${post.urlContent}" th:text="${post.title}"> </a>
         </td>
+        <td class="col-lg-2" th:text="${post.dateOfPost}"></td>
     </tr>
 </table>
 
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
 </body>
 </html>
