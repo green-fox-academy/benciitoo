@@ -62,4 +62,3 @@ public class Post {
         this.urlContent = urlContent;
     }
 }
-

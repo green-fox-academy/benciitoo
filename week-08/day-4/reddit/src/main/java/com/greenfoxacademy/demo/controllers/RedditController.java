@@ -1,9 +1,7 @@
 package com.greenfoxacademy.demo.controllers;
 
-
 import com.greenfoxacademy.demo.models.Post;
 import com.greenfoxacademy.demo.services.RedditService;
-import javafx.geometry.Pos;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -52,5 +50,4 @@ public class RedditController {
         redditService.downvote(id);
         return "redirect:/reddit";
     }
-
 }

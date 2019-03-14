@@ -20,10 +20,6 @@ public class RedditService {
     }
 
 
-   /* public RedditRepository getRedditRepository() {
-        return redditRepository;
-    }*/
-
     public List<Post> getAllPosts (){
         List<Post> posts = new ArrayList<>();
         posts.addAll(redditRepository.findAll());
@@ -47,5 +43,4 @@ public class RedditService {
         post.setVotes(post.getVotes() - 1);
         save(post);
     }
-
 }
