@@ -1,22 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <title>Bence's Reddit</title>
 </head>
 <body>
 
 <a th:href="@{'/reddit/submit'}">Submit a new post</a>
-<h2>Trending posts</h2>
+<h1>Trending posts</h1>
 
 <table>
     <tr th:each="post : ${redditlist}">
         <td th:text="${post.votes}"></td>
-        <td th:text="${post.title}"></td>
+        <td>
+            <a th:href="@{'/reddit/' + ${post.id} + '/upvote'}">+</a>
+        </td>
+        <td>
+            <a th:href="@{'/reddit/' + ${post.id} + '/downvote'}">-</a>
+        </td>
+        <td>
+            <a target="_blank" th:href="${post.urlContent}" th:text="${post.title}"> </a>
+        </td>
     </tr>
 </table>
-
-
 
 </body>
 </html>

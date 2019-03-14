@@ -6,10 +6,7 @@ import com.greenfoxacademy.demo.services.RedditService;
 import javafx.geometry.Pos;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping (value = "/reddit")
@@ -38,9 +35,22 @@ public class RedditController {
 
     @PostMapping(value = "/submit")
     public String submitNewPost(@ModelAttribute("newPost") Post newPost){
-        redditService.getRedditRepository().save(newPost);
-        return "redirect:/";
+        redditService.save(newPost);
+        return "redirect:/reddit";
     }
 
+
+    @GetMapping(value = "/{id}/upvote")
+    public String upvotePost(@PathVariable long id){
+        redditService.upvote(id);
+        return "redirect:/reddit";
+    }
+
+
+    @GetMapping(value = "/{id}/downvote")
+    public String downvotePost(@PathVariable long id){
+        redditService.downvote(id);
+        return "redirect:/reddit";
+    }
 
 }

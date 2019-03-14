@@ -20,9 +20,9 @@ public class RedditService {
     }
 
 
-    public RedditRepository getRedditRepository() {
+   /* public RedditRepository getRedditRepository() {
         return redditRepository;
-    }
+    }*/
 
     public List<Post> getAllPosts (){
         List<Post> posts = new ArrayList<>();
@@ -30,7 +30,22 @@ public class RedditService {
         return posts;
     }
 
+    public void save (Post post){
+        redditRepository.save(post);
+    }
 
 
+    public void upvote (long id){
+        Post post = redditRepository.findById(id).orElseThrow(NullPointerException::new);
+        post.setVotes(post.getVotes() + 1);
+        save(post);
+    }
+
+
+    public void downvote (long id){
+        Post post = redditRepository.findById(id).orElseThrow(NullPointerException::new);
+        post.setVotes(post.getVotes() - 1);
+        save(post);
+    }
 
 }
