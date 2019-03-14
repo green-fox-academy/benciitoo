@@ -19,6 +19,7 @@ public class RedditService {
         this.redditRepository = redditRepository;
     }
 
+
     public RedditRepository getRedditRepository() {
         return redditRepository;
     }
@@ -28,5 +29,8 @@ public class RedditService {
         posts.addAll(redditRepository.findAll());
         return posts;
     }
+
+
+
 
 }

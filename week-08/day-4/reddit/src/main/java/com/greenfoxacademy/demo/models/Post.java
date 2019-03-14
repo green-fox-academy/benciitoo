@@ -1,8 +1,8 @@
 package com.greenfoxacademy.demo.models;
 
-
 import javax.persistence.*;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Post {
@@ -10,17 +10,17 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+
     private String title;
+    private String urlContent;
     private int votes;
-    @Temporal(TemporalType.DATE)
-    private Date postDate;
+    private String dateOfPost;
 
 
     public Post(){
-        postDate = new Date();
+        this.dateOfPost = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy. MMMM. dd."));
         votes = 0;
     }
-
 
     public long getId() {
         return id;
@@ -46,12 +46,20 @@ public class Post {
         this.votes = votes;
     }
 
-    public Date getPostDate() {
-        return postDate;
+    public String getDateOfPost() {
+        return dateOfPost;
     }
 
-    public void setPostDate(Date postDate) {
-        this.postDate = postDate;
+    public void setDateOfPost(String dateOfPost) {
+        this.dateOfPost = dateOfPost;
+    }
+
+    public String getUrlContent() {
+        return urlContent;
+    }
+
+    public void setUrlContent(String urlContent) {
+        this.urlContent = urlContent;
     }
 }
 
