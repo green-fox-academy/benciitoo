@@ -1,0 +1,16 @@
+.addassignee {
+    margin-top: 50px;
+    padding-top: 50px;
+}
+
+.cancelbutton {
+    padding-top: 20px;
+}
+
+.redtext {
+    color: red;
+}
+
+.italictext {
+    font-style: italic;
+}

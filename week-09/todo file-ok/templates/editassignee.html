@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <title>Edit Assignee</title>
+</head>
+<body>
+
+<h1>Edit Assignee:</h1>
+
+<form th:method="put" action="#" th:action="@{'/todo/assignee/update'}">
+    <p class="redtext" th:text="'The current name of the assignee is: ' + ${nameToEdit}"></p>
+    <label for="name">Assignee's new name:</label>
+    <input type="text" id="name" name="nameToEdit" required/>
+    <br>
+    <input class="btn btn-success" type="submit" value="Save name">
+</form>
+
+<div class="cancelbutton">
+    <a class="btn btn-warning" href="/todo/assignees">Cancel</a>
+</div>
+
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</body>
+</html>

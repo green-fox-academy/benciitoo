@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--<link rel="stylesheet" type="text/css" href="/styles.css">-->
+    <title>Todo Page</title>
+</head>
+<body style="padding: 50px">
+
+
+<p th:if="${exist}" th:text="|Your URL is aliased to     |"></p>
+
+
+<div th:if="${!first_load}">
+<p th:if="${exist}" th:text="|Your URL is aliased to     |"></p>
+</div>
+
+
+<form th:method="post" action="/save-link" th:object="${newalias}">
+    <label for="url">URL:</label>
+    <br>
+    <input type="url" id="url" th:field="*{url}" required/>
+    <br>
+    <label for="alias">Alias:</label>
+    <br>
+    <input type="text" id="alias" th:field="*{alias}" required/>
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+</body>
+</html>

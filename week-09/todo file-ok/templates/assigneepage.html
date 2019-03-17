@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="/styles.css">
+    <title>Assignee Page</title>
+</head>
+<body>
+<div class="container-fluid">
+
+    <h1 class="text-center">List of Assignees</h1>
+
+    <div>
+        <form method="post" action="/todo/search">
+            <input type="search" placeholder="Search here..." name="search">
+            <input class="btn btn-success" type="submit" value="Search">
+        </form>
+    </div>
+
+    <div class="text-center">
+        <a class="btn btn-default" href="/todo/">List of todos</a>
+    </div>
+    <br>
+
+    <table class="col-lg-5 table-hover">
+        <thead>
+        <tr>
+            <th>NAME</th>
+            <th>EMAIL</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="assignee : ${asslist}">
+            <td>
+            <a th:href="@{'/todo/assignee/' + ${assignee.id} + '/details'}"
+               th:text="${assignee.name}"></a>
+            </td>
+            <td class="row" th:text="${assignee.email}"></td>
+            <td>
+                <form action="#" th:action="@{|/todo/assignee/${assignee.id}/delete|}" th:method="delete">
+                    <button class="row btn btn-danger" type="submit">Delete</button>
+                </form>
+            </td>
+            <td>
+                <a class="row btn btn-warning" th:href="@{'/todo/assignee/' + ${assignee.id} + '/update'}">Edit name</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="addassignee">
+    <form method="post" action="#" th:action="@{/todo/addassigner}" th:object="${newassignee}">
+        <label for="name">Name:</label>
+        <input class="blockinput" type="text" id="name" th:field="*{name}" required/>
+        <br>
+        <label for="email">E-mail:</label>
+        <input class="blockinput" type="email" id="email" required th:field="*{email}"/>
+        <input class="blockinput btn btn-success" type="submit" value="Add Assignee">
+    </form>
+</div>
+
+<script src="/webjars/jquery/1.11.1/jquery.min.js"></script>
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+</body>
+</html>
