@@ -23,23 +23,27 @@ public class AliasService {
 
     public void saveNewAlias(Alias alias){
         tempAlias = null;
-        try {
-            if (aliasRepository.findByAlias(alias.getAlias()).getAlias() != null) {
-                serviceHelper.setExists(true);
-                serviceHelper.setRedirected(true);
-                tempAlias = alias;
-            }
-        } catch (RuntimeException ex) {
+        if(aliasRepository.findByAlias(alias.getAlias()) == null) {
             serviceHelper.setSuccess(true);
             serviceHelper.setRedirected(true);
             save(alias);
+            tempAlias = alias;
+            System.out.println("Alias not found in repo");
+        } else {
+            serviceHelper.setExists(true);
+            serviceHelper.setRedirected(true);
             tempAlias = alias;
         }
     }
 
 
     public boolean containsAlias(String aliasToFind){
-        return aliasRepository.findByAlias(aliasToFind).getAlias() != null;
+        boolean exists = false;
+        if (aliasRepository.findByAlias(aliasToFind) == null){
+            return exists = false;
+        } else {
+            return true;
+        }
     }
 
 

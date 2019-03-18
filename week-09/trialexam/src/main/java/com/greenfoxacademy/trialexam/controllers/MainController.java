@@ -23,12 +23,12 @@ public class MainController {
 
     @GetMapping(value = "/")
     public String loadMainpage(Model model){
-        if (aliasService.getServiceHelper().isRedirected() && aliasService.getServiceHelper().isSuccess()) {
+        if (aliasService.getServiceHelper().isRedirected() && aliasService.getServiceHelper().isSuccess() && !aliasService.getServiceHelper().isExists()) {
             aliasService.getServiceHelper().setRedirected(false);
             model.addAttribute("servicehelper", aliasService.getServiceHelper());
             model.addAttribute("newalias", new Alias());
             model.addAttribute("tempAlias", aliasService.getTempAlias());
-        } else if (aliasService.getServiceHelper().isRedirected() && aliasService.getServiceHelper().isExists()){
+        } else if (aliasService.getServiceHelper().isRedirected() && aliasService.getServiceHelper().isExists() && !aliasService.getServiceHelper().isSuccess()){
             aliasService.getServiceHelper().setRedirected(false);
             model.addAttribute("servicehelper", aliasService.getServiceHelper());
             model.addAttribute("newalias", aliasService.getTempAlias());
@@ -57,7 +57,7 @@ public class MainController {
             aliasService.save(foundAlias);
             return "redirect:/";
         } else {
-            return "error";
+            return "errpage";
         }
     }
 
