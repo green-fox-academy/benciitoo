@@ -40,4 +40,11 @@ public class ServiceHelper {
         isExists = false;
         success = false;
     }
+
+    public void setAllBooleansToFalse(){
+        isExists = false;
+        success = false;
+        redirected = false;
+    }
+
 }

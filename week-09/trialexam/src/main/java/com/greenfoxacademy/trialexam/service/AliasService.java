@@ -20,6 +20,7 @@ public class AliasService {
         this.serviceHelper = new ServiceHelper(false,false,false);
     }
 
+
     public void saveNewAlias(Alias alias){
         tempAlias = null;
         try {
@@ -31,9 +32,30 @@ public class AliasService {
         } catch (RuntimeException ex) {
             serviceHelper.setSuccess(true);
             serviceHelper.setRedirected(true);
-            aliasRepository.save(alias);
+            save(alias);
             tempAlias = alias;
         }
+    }
+
+
+    public boolean containsAlias(String aliasToFind){
+        return aliasRepository.findByAlias(aliasToFind).getAlias() != null;
+    }
+
+
+    public Alias findAlias(String alias){
+        tempAlias = null;
+        try {
+            tempAlias = aliasRepository.findByAlias(alias);
+        } catch (RuntimeException ex) {
+            System.out.println("There is no Alias found by this alias.");
+        }
+        return tempAlias;
+    }
+
+
+    public void save(Alias alias){
+        aliasRepository.save(alias);
     }
 
 
