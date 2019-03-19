@@ -29,6 +29,12 @@ public class Error {
         this.error = "Please provide a name and a title!";
     }
 
+    public void setErrorForDoUntil(){
+        this.error = "Please provide a number!";
+    }
 
+    public void setErrorForArrayHandler(){
+        this.error = "Please provide what to do with the numbers!";
+    }
 
 }
