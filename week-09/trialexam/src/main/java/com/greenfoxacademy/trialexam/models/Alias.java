@@ -1,6 +1,8 @@
 package com.greenfoxacademy.trialexam.models;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,13 +17,15 @@ public class Alias {
     private long id;
     private String url;
     private String alias;
-    private String secretNumber;
     private int hitCount;
+    @JsonIgnore
+    private String secretNumber;
 
 
     public Alias() {
         this.secretNumber = String.format("%04d", new Random().nextInt(10000));
     }
+
 
     public long getId() {
         return id;

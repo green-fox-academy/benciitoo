@@ -6,6 +6,9 @@ import com.greenfoxacademy.trialexam.repository.AliasRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class AliasService {
 
@@ -55,6 +58,29 @@ public class AliasService {
             System.out.println("There is no Alias found by this alias.");
         }
         return tempAlias;
+    }
+
+
+    public Alias findById(long id){
+        return aliasRepository.findById(id).orElseThrow(NullPointerException::new);
+    }
+
+
+    public void deleteById(long id){
+        aliasRepository.deleteById(id);
+    }
+
+
+    public boolean existsById (long id){
+        boolean x = aliasRepository.existsById(id);
+        return x;
+    }
+
+
+    public List<Alias> getAllAliases(){
+        List<Alias> aliases = new ArrayList<>();
+        aliasRepository.findAll().forEach(aliases::add);
+        return aliases;
     }
 
 

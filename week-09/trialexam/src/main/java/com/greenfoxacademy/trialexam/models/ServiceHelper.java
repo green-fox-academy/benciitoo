@@ -6,6 +6,7 @@ public class ServiceHelper {
     private boolean isExists;
     private boolean redirected;
 
+
     public ServiceHelper(boolean success, boolean isExists, boolean redirected) {
         this.success = success;
         this.isExists = isExists;
