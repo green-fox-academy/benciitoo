@@ -11,6 +11,8 @@ public interface AliasRepository extends CrudRepository <Alias, Long> {
 
     boolean existsById(long id);
 
+    boolean existsByAlias(String aliasToFind);
+
   /*  @Query(value = "SELECT * FROM links WHERE alias = :alias;", nativeQuery = true)
         public int[] searchByAlias(@Param("alias") String alias);
 */

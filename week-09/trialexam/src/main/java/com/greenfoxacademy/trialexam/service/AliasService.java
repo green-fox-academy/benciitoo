@@ -40,13 +40,8 @@ public class AliasService {
     }
 
 
-    public boolean containsAlias(String aliasToFind){
-        boolean exists = false;
-        if (aliasRepository.findByAlias(aliasToFind) == null){
-            return exists = false;
-        } else {
-            return true;
-        }
+    public boolean existByAlias(String aliasToFind){
+        return aliasRepository.existsByAlias(aliasToFind);
     }
 
 
@@ -93,13 +88,16 @@ public class AliasService {
         return tempAlias;
     }
 
+
     public void setTempAlias(Alias tempAlias) {
         this.tempAlias = tempAlias;
     }
 
+
     public ServiceHelper getServiceHelper() {
         return serviceHelper;
     }
+
 
     public void setServiceHelper(ServiceHelper serviceHelper) {
         this.serviceHelper = serviceHelper;

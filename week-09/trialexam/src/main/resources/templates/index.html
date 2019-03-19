@@ -8,8 +8,8 @@
 <body style="padding: 50px">
 
 <p style="color:red" th:if="${servicehelper.isExists()}" th:text="${'Your alias is already in use!'}"></p>
-<p th:if="${servicehelper.isSuccess()}" th:text="'Your URL is aliased to ' + ${tempAlias.alias} + ' and your secret code is ' + ${tempAlias.secretNumber}"></p>
-
+<p th:if="${servicehelper.isSuccess()}"
+   th:text="'Your URL is aliased to ' + ${tempAlias.alias} + ' and your secret code is ' + ${tempAlias.secretNumber}"></p>
 
 <form th:method="post" action="/save-link" th:object="${newalias}">
     <label for="url">URL:</label>
@@ -22,7 +22,6 @@
     <br>
     <input type="submit" value="Submit">
 </form>
-
 
 </body>
 </html>
