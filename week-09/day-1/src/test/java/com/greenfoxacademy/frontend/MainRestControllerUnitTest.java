@@ -2,12 +2,17 @@ package com.greenfoxacademy.frontend;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import com.greenfoxacademy.frontend.models.Append;
+import com.greenfoxacademy.frontend.services.MainService;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
@@ -21,9 +26,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-
-
-
 import com.greenfoxacademy.frontend.controllers.MainRestController;
 
 
@@ -34,11 +36,17 @@ public class MainRestControllerUnitTest {
     @Autowired
     MockMvc mockMvc;
 
+    @MockBean
+    MainService mainService;
 
     @Test
     public void doubling_10_Returns_20() throws Exception {
         this.mockMvc.perform(get("/doubling?=input=10"))
-                .andExpect(jsonPath("$.result", is(20)));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.received")
+                .value(10))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.result")
+                .value(20))
+                .andExpect(status().isOk());
     }
 
 
@@ -77,6 +85,25 @@ public class MainRestControllerUnitTest {
         this.mockMvc.perform(get("/greeter"))
                 .andExpect(jsonPath("$.error", is("Please provide a name and a title!")));
     }
+
+
+    @Test
+    public void appendA_Test_With_Query() throws Exception {
+        when (mainService.appending(eq("cic")))
+                .thenReturn(new Append("cica"));
+        this.mockMvc.perform(get("/appenda/cic"))
+                .andExpect(jsonPath("$.appended", is("cica")));
+    }
+
+
+    @Test
+    public void appendA_Test_Without_Query() throws Exception {
+        this.mockMvc.perform(get("/appenda"))
+                .andExpect(status().isNotFound());
+    }
+
+
+
 
 
 

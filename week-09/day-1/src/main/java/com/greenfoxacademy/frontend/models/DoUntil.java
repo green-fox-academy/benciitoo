@@ -18,6 +18,7 @@ public class DoUntil {
         }
     }
 
+
     public int getResult() {
         return result;
     }

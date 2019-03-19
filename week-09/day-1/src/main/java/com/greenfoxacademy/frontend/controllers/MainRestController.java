@@ -2,10 +2,20 @@ package com.greenfoxacademy.frontend.controllers;
 
 import com.greenfoxacademy.frontend.models.*;
 import com.greenfoxacademy.frontend.models.Error;
+import com.greenfoxacademy.frontend.services.MainService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class MainRestController {
+
+    private MainService mainService;
+
+    @Autowired
+    public MainRestController(MainService mainService){
+        this.mainService = mainService;
+    }
+
 
     @GetMapping(value = "/doubling")
     public Object doubling(@RequestParam(value = "input", required = false) Integer input) {
@@ -42,9 +52,7 @@ public class MainRestController {
 
     @GetMapping(value = "/appenda/{appendable}")
     public Object appendA(@PathVariable(value = "appendable") String appendable) {
-        Append append = new Append();
-        append.setAppended(appendable);
-        return append;
+        return mainService.appending(appendable);
     }
 
 
@@ -56,9 +64,7 @@ public class MainRestController {
             error.setErrorForDoUntil();
             return error;
         } else {
-            DoUntil doUntil = new DoUntil();
-            doUntil.calculate(action, until);
-            return doUntil;
+            return mainService.doUntilCalculation(action, until);
         }
     }
 
