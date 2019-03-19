@@ -4,6 +4,8 @@ import com.greenfoxacademy.frontend.models.*;
 import com.greenfoxacademy.frontend.models.Error;
 import com.greenfoxacademy.frontend.services.MainService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -44,15 +46,19 @@ public class MainRestController {
             error.setErrorForGreeterNameMissing();
             return error;
         } else {
-            error.setErrorForGreeterNameAndTitleMissing();
-            return error;
+            Error noInputError = new Error();
+            noInputError.setError("Please provide a name and a title!");
+            ResponseEntity responseEntity = new ResponseEntity(noInputError,null, HttpStatus.NOT_FOUND);
+            return responseEntity;
+           /* error.setErrorForGreeterNameAndTitleMissing();
+            return error;*/
         }
     }
 
 
     @GetMapping(value = "/appenda/{appendable}")
     public Object appendA(@PathVariable(value = "appendable") String appendable) {
-        return mainService.appending(appendable);
+            return mainService.appending(appendable);
     }
 
 

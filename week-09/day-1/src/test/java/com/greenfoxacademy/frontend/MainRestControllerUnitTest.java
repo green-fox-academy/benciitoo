@@ -4,6 +4,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.greenfoxacademy.frontend.models.Append;
+import com.greenfoxacademy.frontend.models.DoUntil;
+import com.greenfoxacademy.frontend.models.Until;
 import com.greenfoxacademy.frontend.services.MainService;
 import org.hamcrest.Matchers;
 import org.junit.Test;
@@ -25,8 +27,11 @@ import static org.hamcrest.Matchers.is;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder.*;
 
 import com.greenfoxacademy.frontend.controllers.MainRestController;
+
+import javax.validation.constraints.NotNull;
 
 
 @RunWith(SpringRunner.class)
@@ -43,9 +48,9 @@ public class MainRestControllerUnitTest {
     public void doubling_10_Returns_20() throws Exception {
         this.mockMvc.perform(get("/doubling?=input=10"))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.received")
-                .value(10))
+                        .value(10))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.result")
-                .value(20))
+                        .value(20))
                 .andExpect(status().isOk());
     }
 
@@ -89,7 +94,7 @@ public class MainRestControllerUnitTest {
 
     @Test
     public void appendA_Test_With_Query() throws Exception {
-        when (mainService.appending(eq("cic")))
+        when(mainService.appending(eq("cic")))
                 .thenReturn(new Append("cica"));
         this.mockMvc.perform(get("/appenda/cic"))
                 .andExpect(jsonPath("$.appended", is("cica")));
@@ -103,8 +108,18 @@ public class MainRestControllerUnitTest {
     }
 
 
+    @Test
+    public void doUntil_Test_Sum() throws Exception {
+        DoUntil mockDoUntil = new DoUntil();
+        mockDoUntil.setResult(120);
+        when(mainService.doUntilCalculation(eq("sum"), (Until) notNull()))
+                .thenReturn(mockDoUntil);
 
-
-
-
+        this.mockMvc.perform(
+                post("/dountil/sum")
+                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .content("{\"until\":15}"))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.result")
+                        .value(120));
+    }
 }

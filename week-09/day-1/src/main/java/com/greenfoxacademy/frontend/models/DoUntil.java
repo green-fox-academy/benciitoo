@@ -4,6 +4,7 @@ public class DoUntil {
 
     private int result;
 
+
     public void calculate (String action, Until until){
         result = until.getUntil();
         
