@@ -31,9 +31,6 @@ import static org.springframework.test.web.servlet.request.MockHttpServletReques
 
 import com.greenfoxacademy.frontend.controllers.MainRestController;
 
-import javax.validation.constraints.NotNull;
-
-
 @RunWith(SpringRunner.class)
 @WebMvcTest(MainRestController.class)
 public class MainRestControllerUnitTest {
