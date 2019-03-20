@@ -50,7 +50,7 @@
     </table>
 </div>
 
-<div class="addassignee">
+<div class="updatepadding addassignee">
     <form method="post" action="#" th:action="@{/todo/addassigner}" th:object="${newassignee}">
         <label for="name">Name:</label>
         <input class="blockinput" type="text" id="name" th:field="*{name}" required/>
