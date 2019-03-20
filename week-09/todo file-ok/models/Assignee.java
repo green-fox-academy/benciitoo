@@ -14,6 +14,10 @@ public class Assignee {
     private String name;
     private String email;
 
+  /*    @OneToMany(targetEntity = xTodo.class) így is lehet, és akkor a másikba nem kell a manytoone és az alatta lévő
+      assignee cucc... így nem kell settelni az assignee-t ha pl törlünk egy assignee-t és a xtodo megmarad,
+      hanem létrehoz egy köztes táblát*/
+
     @OneToMany(mappedBy = "assignee")
     private List<Todo> todos;
 

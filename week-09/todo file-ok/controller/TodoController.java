@@ -26,13 +26,13 @@ public class TodoController {
     @RequestMapping(value = {"", "/", "/list"}, method = RequestMethod.GET)
     public String list(Model model, @RequestParam(value = "isActive", required = false) String isItDone) {
         model.addAttribute("todolist", todoService.loadTodoListPage(isItDone));
-        return "todolist";
+        return "todo_list";
     }
 
     @GetMapping(value = "/add")
     public String loadAddPage(Model model) {
         model.addAttribute("newtodo", new Todo());
-        return "addpage";
+        return "todo_addpage";
     }
 
     @PostMapping(value = "/add")
@@ -51,7 +51,7 @@ public class TodoController {
     public String loadUpdateTodoPage(Model model, @PathVariable long id) {
         model.addAttribute("todotoedit", todoService.findTodoById(id));
         model.addAttribute("assignees", assigneeService.findAll());
-        return "updatepage";
+        return "todo_updatepage";
     }
 
     @PutMapping(value = "/{id}/update")
@@ -66,15 +66,16 @@ public class TodoController {
 
     @PostMapping(value = "/search")
     public String search(Model model, String search) {
+        model.addAttribute("searched", true);
         model.addAttribute("todolist", todoService.search(search));
-        return "todolist";
+        return "todo_list";
     }
 
     @GetMapping(value = "/assignees")
     public String listAssignees(Model model) {
         model.addAttribute("newassignee", new Assignee());
         model.addAttribute("asslist", assigneeService.findAllAssignees());
-        return "assigneepage";
+        return "assignees";
     }
 
     @PostMapping(value = "/addassigner")
@@ -94,7 +95,7 @@ public class TodoController {
     public String editAssigneepage(Model model, @PathVariable("id") long id) {
         assigneeService.setTempAssignee(assigneeService.findAssigneeById(id));
         model.addAttribute("nameToEdit", assigneeService.getTempAssignee().getName());
-        return "editassignee";
+        return "assignee_edit";
     }
 
     @PutMapping(value = "/assignee/update")

@@ -5,7 +5,6 @@ import com.greenfox.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +18,7 @@ public class TodoService {
         this.todoRepository = todoRepository;
     }
 
+
     public List<Todo> loadTodoListPage(String isItDone) {
         List<Todo> todos;
         if (isItDone != null && isItDone.equals("true")) {
@@ -31,13 +31,16 @@ public class TodoService {
         return todos;
     }
 
+
     public void save(Todo todo) {
         todoRepository.save(todo);
     }
 
+
     public void deleteTodoById(long id) {
         todoRepository.deleteById(id);
     }
+
 
     public void deleteAssigneeFromTodosByAssigneeId(long id){
         List<Todo> todos = todoRepository.findAllByAssignee_Id(id);
@@ -58,12 +61,9 @@ public class TodoService {
         return todoRepository.findById(id).orElseThrow(NullPointerException::new);
     }
 
+
     public List<Todo> search (String searched){
-        List<Todo> todos = new ArrayList<>(todoRepository.findAll());
-        todos = todos.stream()
-                .filter(x -> x.getTitle().toLowerCase().contains(searched.toLowerCase()) |
-                        x.getDescription().toLowerCase().contains(searched.toLowerCase()))
-                .collect(Collectors.toList());
+        List<Todo> todos = todoRepository.getSearchedTodos(searched);
         return todos;
     }
 }

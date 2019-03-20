@@ -6,16 +6,16 @@
     <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet"/>
     <title>Add new Todo</title>
 </head>
-<body>
+<body class="updatepadding">
 
 <h1>Add new Todo:</h1>
 
 <form method="post" action="#" th:action="@{/todo/add}" th:object="${newtodo}">
     <label for="title">Title:</label>
-    <input class="blockinput" type="text" id="title" th:field="*{title}" required/>
+    <input class="blockinput" type="text" maxlength="30" placeholder="max 30 characters..." id="title" th:field="*{title}" required/>
     <br>
     <label for="description">Description:</label>
-    <input class="blockinput" type="text" id="description" th:field="*{description}"/>
+    <input class="blockinput" type="text" maxlength="230" placeholder="max 230 characters..." id="description" th:field="*{description}"/>
 
     <input class="blockinput" type="submit" value="Add Todo">
 </form>

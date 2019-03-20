@@ -2,6 +2,8 @@ package com.greenfox.models;
 
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Entity
 public class Todo {
@@ -14,6 +16,8 @@ public class Todo {
     private String description;
     private boolean urgent;
     private boolean done;
+    private String creationDate;
+    private String dueDate;
 
     @ManyToOne
     private Assignee assignee;
@@ -22,6 +26,7 @@ public class Todo {
     public Todo() {
         this.urgent = false;
         this.done = false;
+        this.creationDate = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
     }
 
 
@@ -71,5 +76,22 @@ public class Todo {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+
+    public String getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(String creationDate) {
+        this.creationDate = creationDate;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
     }
 }

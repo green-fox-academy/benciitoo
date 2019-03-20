@@ -14,3 +14,7 @@
 .italictext {
     font-style: italic;
 }
+
+.updatepadding {
+    padding: 0 30px 0 30px;
+}

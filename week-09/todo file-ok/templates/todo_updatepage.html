@@ -6,17 +6,20 @@
     <link rel="stylesheet" type="text/css" href="/styles.css">
     <title>Update Todo</title>
 </head>
-<body>
+<body class="updatepadding">
 
 <h1>Edit Todo:</h1>
 
 <form th:method="put" action="#" th:action="@{'/todo/' + ${id}+ '/update'}" th:object="${todotoedit}">
     <label for="title">Todo title</label>
-    <input type="text" id="title" th:field="*{title}" required/>
-
+    <input type="text" maxlength="30" placeholder="max 30 characters..." id="title" th:field="*{title}" required/>
+    <br>
     <label for="description">Todo description</label>
-    <input type="text" id="description" th:field="*{description}"/>
-
+    <input type="text" maxlength="230" placeholder="max 230 characters..." id="description" th:field="*{description}"/>
+    <br>
+    <label for="duedate">Due Date</label>
+    <input type="date" id="duedate" th:field="*{dueDate}">
+    <br>
     <div class="urgentform">
         <label for="urgent">Urgent</label>
         <input type="radio" value="true" id="urgent" th:field="*{urgent}">

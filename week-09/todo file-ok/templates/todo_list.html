@@ -19,6 +19,7 @@
     </div>
 
     <div class="text-center">
+        <a th:if="${searched}" class="btn btn-info" href="/todo/list">Back to Todo List</a>
         <a class="btn btn-default" href="/todo/add">Add new todo</a>
         <a class="btn btn-default" href="/todo/assignees">List of Assignees</a>
     </div>
@@ -27,9 +28,13 @@
     <table class="col-lg-12 table-hover">
         <thead>
         <tr>
+<!--
             <th>ID</th>
+-->
             <th>ACTION</th>
             <th>DESCRIPTION</th>
+            <th class="text-center">DUE DATE</th>
+            <th class="text-center">DATE OF POST</th>
             <th>ASSIGNEE</th>
             <th class="text-center">DONE</th>
             <th class="text-center">URGENT</th>
@@ -37,27 +42,28 @@
         </thead>
         <tbody>
         <tr th:each="todo : ${todolist}">
-            <td class="row" th:text="${todo.id}"></td>
+            <!--<td class="col-sm-1" th:text="${todo.id}"></td>-->
             <td class="row" th:text="${todo.title}"></td>
             <td class="row" th:text="${todo.description}"></td>
-
+            <td class="col-lg-1 text-nowrap text-center" th:text="${todo.dueDate}"></td>
+            <td class="col-lg-1 text-nowrap text-center" th:text="${todo.creationDate}"></td>
             <td class="row" th:if="${todo.assignee!=null}">
                 <a th:href="@{'/todo/assignee/' + ${todo.assignee.id} + '/details'}"
                    th:text="${todo.assignee.name}"></a>
             </td>
             <td class="row" th:if="${todo.assignee==null}"></td>
 
-            <td class="row text-center" th:if="${todo.done}"><span class="glyphicon glyphicon-ok"></span></td>
-            <td class="row text-center" th:unless="${todo.done}"><span class="glyphicon glyphicon-remove"></span></td>
+            <td class="row col-md-1 text-center" th:if="${todo.done}"><span class="glyphicon glyphicon-ok"></span></td>
+            <td class="row col-md-1 text-center" th:unless="${todo.done}"><span class="glyphicon glyphicon-remove"></span></td>
             <td class="row text-center" th:if="${todo.urgent}"><span class="glyphicon glyphicon-ok"></span></td>
             <td class="row text-center" th:unless="${todo.urgent}"><span class="glyphicon glyphicon-remove"></span></td>
             <td>
                 <form action="#" th:action="@{|/todo/${todo.id}/delete|}" th:method="delete">
-                    <button class="row btn btn-danger" type="submit">Delete</button>
+                    <button class="btn btn-danger" type="submit">Delete</button>
                 </form>
             </td>
             <td>
-                <a class="row btn btn-warning" th:href="@{'/todo/' + ${todo.id} + '/update'}">Edit</a>
+                <a class="btn btn-warning" th:href="@{'/todo/' + ${todo.id} + '/update'}">Edit</a>
             </td>
         </tr>
         </tbody>
