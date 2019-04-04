@@ -12,3 +12,5 @@ https://github.com/benciitoo/exam-trial-basics
 Megalotis foundation exam:
 https://github.com/benciitoo/megalotis-foundation-normal-exam
 
+Megalotis orientation exam:
+https://github.com/benciitoo/megalotis-orientation-normal-exam
